@@ -56,8 +56,6 @@ ehthumbs.db
 Icon?
 Thumbs.db
  
-# below are rules added by me (@kmorcinek)
- 
 # NCrunch
 *.crunchsolution.cache
 *.ncrunchsolution
@@ -77,3 +75,7 @@ _ReSharper.*
 # My specific Visual Studio
 *.vsp
 *.psess
+
+#NuGet
+packages/
+*.nupkg

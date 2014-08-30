@@ -1,6 +1,7 @@
 ﻿namespace Archimedes.Common
 {
 	using Archimedes.Common.Exceptions;
+	using Archimedes.Common.Mapping;
 
 	/// <summary>
 	/// The bootstrapper.
@@ -56,6 +57,7 @@
 			{
 				var kernel = new Kernel(configuration);
 				BootedKernel = kernel;
+				MappingConfigurationLoader.LoadConfigurations();
 			}
 		}
 	}

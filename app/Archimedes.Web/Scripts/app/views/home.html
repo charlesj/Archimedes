@@ -1,5 +1,21 @@
 ﻿<section>
     <h2>Manuscripts</h2>
     
-    
+    <div data-bind="foreach: manuscripts">
+        <p data-bind="text: Title"></p>
+    </div>
+</section>
+<section>
+    <h2>Create New Manuscript</h2>
+    <form role="form">
+        <div class="form-group">
+            <label for="newManuscriptTitle">Title</label>
+            <input type="email" id="newManuscriptTitle" class="form-control" placeholder="Enter Title" data-bind="value: newTitle">
+        </div>
+        <div class="form-group">
+            <label for="newManuscriptDescription">Description</label>
+            <input type="email" class="form-control" id="newManuscriptDescription" placeholder="Enter Description" data-bind="value: newDescription">
+        </div>
+        <button data-bind="click: createManuscript" class="btn btn-primary">Create</button>
+    </form>
 </section>

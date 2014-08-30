@@ -38,6 +38,17 @@
 		}
 
 		/// <summary>
+		/// Gets the kernel, beacuse asp.net needs this.
+		/// </summary>
+		public IKernel Kernel
+		{
+			get
+			{
+				return this.kernel; 
+			}
+		}
+
+		/// <summary>
 		/// The get service.
 		/// </summary>
 		/// <param name="type">
