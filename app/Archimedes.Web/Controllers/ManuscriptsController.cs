@@ -2,6 +2,7 @@
 {
 	using System.Collections.Generic;
 	using System.Threading;
+	using System.Web.Mvc;
 
 	using Archimedes.Business.BusinessObjects;
 	using Archimedes.Business.Commands.ManuscriptCommands;
@@ -18,6 +19,7 @@
 		/// <returns>
 		/// The <see cref="AjaxResult"/>.
 		/// </returns>
+		[HttpGet]
 		public AjaxResult GetAll()
 		{
 			Thread.Sleep(1000);
@@ -37,6 +39,7 @@
 		/// <returns>
 		/// The <see cref="AjaxResult"/>.
 		/// </returns>
+		[HttpPost]
 		public AjaxResult Create(string title, string description)
 		{
 			var request = new CreateManuscriptRequest { Description = description, Title = title };

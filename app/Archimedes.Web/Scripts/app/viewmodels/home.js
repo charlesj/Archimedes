@@ -1,4 +1,4 @@
-﻿define(['knockout', 'dataService', 'durandal/system'], function (ko, dataService, system) {
+﻿define(['knockout', 'dataService', 'durandal/system', 'plugins/router'], function (ko, dataService, system, router) {
 	var ctor = function () {
 		
 		var self = this;
@@ -18,6 +18,9 @@
 			self.manuscripts(data.Result);
 		});
 
+		self.nav = function() {
+			router.navigate('settings');
+		}
 	};
 
 

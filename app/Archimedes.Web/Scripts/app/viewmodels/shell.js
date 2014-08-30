@@ -9,10 +9,10 @@
         activate: function () {
             router.map([
                 { route: '', title:'Home', moduleId: 'viewmodels/home', nav: true },
-                { route: 'settings', title:'Settings', moduleId: 'viewmodels/settings', nav: true }
+                { route: 'settings', title:'Settings', moduleId: 'viewmodels/settings', nav: false }
             ]).buildNavigationModel();
             
             return router.activate();
         }
     };
-});
+});	
