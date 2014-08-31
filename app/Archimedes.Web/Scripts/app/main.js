@@ -27,6 +27,10 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', '../pace'],  
         dialog: true
     });
 
+    app.on('all').then(function (event) {
+	    system.log("Event Published: " + event);
+    });
+
     app.start().then(function() {
         //Replace 'viewmodels' in the moduleId with 'views' to locate the view.
         //Look for partial views in a 'views' folder in the root.

@@ -157,7 +157,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Scripts\app\dataService.js" />
+    <Content Include="Scripts\app\viewmodels\createManuscript.js" />
     <Content Include="Scripts\app\viewmodels\settings.js" />
+    <Content Include="Scripts\app\views\createManuscript.html" />
     <Content Include="Scripts\app\views\settings.html" />
     <Content Include="Scripts\durandal\transitions\entrance.js" />
     <Content Include="Scripts\knockout-3.2.0.debug.js" />
