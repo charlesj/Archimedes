@@ -1,6 +1,9 @@
 ﻿namespace Archimedes.Common.Extensions
 {
+	using System;
 	using System.Reflection;
+	using System.Web;
+	using System.Web.UI;
 
 	using Newtonsoft.Json;
 
@@ -35,6 +38,33 @@
 		public static string ToJson(this object obj)
 		{
 			return JsonConvert.SerializeObject(obj);
+		}
+
+	    /// <summary>
+	    /// The eval.
+	    /// </summary>
+	    /// <param name="source">
+	    /// The source.
+	    /// </param>
+	    /// <param name="expression">
+	    /// The expression.
+	    /// </param>
+	    /// <returns>
+	    /// The <see cref="object"/>.
+	    /// </returns>
+	    /// <exception cref="FormatException">
+	    /// If it's invalid.
+	    /// </exception>
+	    public static object EvaluateWithDataBinder(this object source, string expression)
+		{
+			try
+			{
+				return DataBinder.Eval(source, expression);
+			}
+			catch (HttpException e)
+			{
+				throw new FormatException(null, e);
+			}
 		}
 	}
 }
