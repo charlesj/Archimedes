@@ -135,27 +135,36 @@
     <Compile Include="Results\AjaxSuccessfulResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\app\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\app\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\bootstrap.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme\bootstrap.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Content\durandal.css" />
     <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\icon.png" />
     <Content Include="Content\images\ios-startup-image-landscape.png" />
     <Content Include="Content\images\ios-startup-image-portrait.png" />
-    <Content Include="Content\theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Scripts\app\dataService.js" />
     <Content Include="Scripts\app\viewmodels\createManuscript.js" />
     <Content Include="Scripts\app\viewmodels\settings.js" />
@@ -172,6 +181,91 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\css\.csscomb.json" />
+    <Content Include="Content\css\.csslintrc" />
+    <Content Include="Content\css\alerts.less" />
+    <Content Include="Content\css\badges.less" />
+    <Content Include="Content\css\bootstrap.less" />
+    <Content Include="Content\css\breadcrumbs.less" />
+    <Content Include="Content\css\button-groups.less" />
+    <Content Include="Content\css\buttons.less" />
+    <Content Include="Content\css\carousel.less" />
+    <Content Include="Content\css\close.less" />
+    <Content Include="Content\css\code.less" />
+    <Content Include="Content\css\component-animations.less" />
+    <Content Include="Content\css\dropdowns.less" />
+    <Content Include="Content\css\forms.less" />
+    <Content Include="Content\css\glyphicons.less" />
+    <Content Include="Content\css\grid.less" />
+    <Content Include="Content\css\input-groups.less" />
+    <Content Include="Content\css\jumbotron.less" />
+    <Content Include="Content\css\labels.less" />
+    <Content Include="Content\css\list-group.less" />
+    <Content Include="Content\css\media.less" />
+    <Content Include="Content\css\mixins.less" />
+    <Content Include="Content\css\mixins\alerts.less" />
+    <Content Include="Content\css\mixins\background-variant.less" />
+    <Content Include="Content\css\mixins\border-radius.less" />
+    <Content Include="Content\css\mixins\buttons.less" />
+    <Content Include="Content\css\mixins\center-block.less" />
+    <Content Include="Content\css\mixins\clearfix.less" />
+    <Content Include="Content\css\mixins\forms.less" />
+    <Content Include="Content\css\mixins\gradients.less" />
+    <Content Include="Content\css\mixins\grid-framework.less" />
+    <Content Include="Content\css\mixins\grid.less" />
+    <Content Include="Content\css\mixins\hide-text.less" />
+    <Content Include="Content\css\mixins\image.less" />
+    <Content Include="Content\css\mixins\labels.less" />
+    <Content Include="Content\css\mixins\list-group.less" />
+    <Content Include="Content\css\mixins\nav-divider.less" />
+    <Content Include="Content\css\mixins\nav-vertical-align.less" />
+    <Content Include="Content\css\mixins\opacity.less" />
+    <Content Include="Content\css\mixins\pagination.less" />
+    <Content Include="Content\css\mixins\panels.less" />
+    <Content Include="Content\css\mixins\progress-bar.less" />
+    <Content Include="Content\css\mixins\reset-filter.less" />
+    <Content Include="Content\css\mixins\resize.less" />
+    <Content Include="Content\css\mixins\responsive-visibility.less" />
+    <Content Include="Content\css\mixins\size.less" />
+    <Content Include="Content\css\mixins\tab-focus.less" />
+    <Content Include="Content\css\mixins\table-row.less" />
+    <Content Include="Content\css\mixins\text-emphasis.less" />
+    <Content Include="Content\css\mixins\text-overflow.less" />
+    <Content Include="Content\css\mixins\vendor-prefixes.less" />
+    <Content Include="Content\css\modals.less" />
+    <Content Include="Content\css\navbar.less" />
+    <Content Include="Content\css\navs.less" />
+    <Content Include="Content\css\normalize.less" />
+    <Content Include="Content\css\pager.less" />
+    <Content Include="Content\css\pagination.less" />
+    <Content Include="Content\css\panels.less" />
+    <Content Include="Content\css\popovers.less" />
+    <Content Include="Content\css\print.less" />
+    <Content Include="Content\css\progress-bars.less" />
+    <Content Include="Content\css\responsive-embed.less" />
+    <Content Include="Content\css\responsive-utilities.less" />
+    <Content Include="Content\css\scaffolding.less" />
+    <Content Include="Content\css\tables.less" />
+    <Content Include="Content\css\theme.less" />
+    <Content Include="Content\css\thumbnails.less" />
+    <Content Include="Content\css\tooltip.less" />
+    <Content Include="Content\css\type.less" />
+    <Content Include="Content\css\utilities.less" />
+    <Content Include="Content\css\variables.less" />
+    <Content Include="Content\css\wells.less" />
+    <Content Include="Content\css\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\theme\bootswatch.less" />
+    <Content Include="Content\css\theme\variables.less" />
+    <Content Include="Content\css\theme\bootstrap.less" />
+    <Content Include="Content\css\theme\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\app\site.less" />
+    <Content Include="Content\css\app\site.css.map">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\almond-custom.js" />
     <Content Include="Scripts\app\main.js" />
@@ -228,7 +322,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Application\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
