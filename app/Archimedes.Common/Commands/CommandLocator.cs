@@ -28,7 +28,7 @@
 		{
 			try
 			{
-				var command = Bootstrapper.BootedKernel.ServiceLocater.GetService<BaseCommand<TRequest, TResult>>();
+				var command = Bootstrapper.BootedKernel.ServiceLocator.GetService<BaseCommand<TRequest, TResult>>();
 				return command;
 			}
 			catch (Exception exception)

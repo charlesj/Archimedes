@@ -18,6 +18,9 @@
 		/// </summary>
 		public override void Load()
 		{
+			this.Bind<IBusinessServices>().To<BusinessServices>();
+
+			// Register commands!
 			this.RegisterCommand<GetAllManuscriptsRequest, List<Manuscript>, GetAllManuscriptsCommand>();
 			this.RegisterCommand<CreateManuscriptRequest, Manuscript, CreateManuscriptCommand>();
 		}

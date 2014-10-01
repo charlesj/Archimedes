@@ -2,6 +2,8 @@
 {
 	using System;
 
+	using Archimedes.Common.Validation;
+
 	/// <summary>
 	/// The base data controller.
 	/// </summary>
@@ -14,10 +16,19 @@
 	public abstract class BaseCommand<TRequest, TResult> where TRequest : Request
 	{
 		/// <summary>
+		/// The valdiator.
+		/// </summary>
+		private readonly IValidateThings valdiator;
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="BaseCommand{TRequest,TResult}"/> class.
 		/// </summary>
-		protected BaseCommand()
+		/// <param name="valdiator">
+		/// The valdiator.
+		/// </param>
+		protected BaseCommand(IValidateThings valdiator)
 		{
+			this.valdiator = valdiator;
 			this.SuccessMessage = "Wahoo!";
 			this.ErrorMessage = "Unspecific Error Message";
 		}
@@ -55,12 +66,28 @@
 			response.Start();
 			try
 			{
-				response.SetResult(this.Work());
-				response.Success = true;
+				if (this.Authorize())
+				{
+					var validationResult = this.valdiator.CheckValidation(request);
+					if (validationResult.IsValid)
+					{
+						response.SetResult(this.Work());
+						response.ResultType = ResponseTypes.Success;
+					}
+					else
+					{
+						response.ResultType = ResponseTypes.InvalidRequest;
+						response.ValidationErrors = validationResult.FailureMessages;
+					}
+				}
+				else
+				{
+					response.ResultType = ResponseTypes.Unauthorized;
+				}
 			}
 			catch (Exception exception)
 			{
-				response.Success = false;
+				response.ResultType = ResponseTypes.Error;
 				response.Exception = exception;
 			}
 
@@ -75,5 +102,13 @@
 		/// The <see cref="TResult"/>.
 		/// </returns>
 		protected abstract TResult Work();
+
+		/// <summary>
+		/// Runs any authorization check required.
+		/// </summary>
+		/// <returns>
+		/// The <see cref="bool"/>.
+		/// </returns>
+		protected abstract bool Authorize();
 	}
 }

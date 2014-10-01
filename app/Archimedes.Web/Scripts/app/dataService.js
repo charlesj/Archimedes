@@ -1,6 +1,4 @@
 ﻿define(['plugins/http', 'jquery', 'durandal/system', 'durandal/app'], function (http, $, system, app) {
-	system.log('loading data service');
-
 	var handleErrorResult = function (data, textStatus, jqXHR) {
 		app.showMessage(data.message);
 		system.log(data);
@@ -16,7 +14,11 @@
 			dataType: "json",
 			data: payload,
 			error: handleError,
-			success: function(data, textStatus, jqXhr) {
+			statusCode: {
+
+			},
+			success: function (data, textStatus, jqXhr) {
+				console.log("status: " + jqXhr.status);
 				if (data.status == 'success') {
 					system.log("Command Executed Successfully in " + data.data.ExecutionTime + "ms");
 					callback(data.data);

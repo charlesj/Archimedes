@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBootTests.cs" />
+    <Compile Include="DataStorageTests.cs" />
     <Compile Include="ManuscriptRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -40,10 +40,18 @@
     <Reference Include="xunit">
       <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
     </Reference>
+    <Reference Include="xunit.extensions, Version=1.9.2.1705, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateManuscriptCommandTests.cs" />
-    <Compile Include="GetAllManuscriptsCommandTests.cs" />
+    <Compile Include="BusinessIntegrationTest.cs" />
+    <Compile Include="Commands\JournalCommandTests\AddJournalEntryCommandTests.cs" />
+    <Compile Include="Commands\JournalCommandTests\GetUserEntriesCommandTests.cs" />
+    <Compile Include="Commands\ManuscriptCommandTests\CreateManuscriptCommandTests.cs" />
+    <Compile Include="Commands\ManuscriptCommandTests\GetAllManuscriptsCommandTests.cs" />
+    <Compile Include="Commands\SecurityCommandTests\LoginCommandTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +70,10 @@
     <ProjectReference Include="..\Archimedes.Common\Archimedes.Common.csproj">
       <Project>{033CC71E-1671-4282-9F22-D809FA16A13F}</Project>
       <Name>Archimedes.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Archimedes.Data\Archimedes.Data.csproj">
+      <Project>{F9855C2F-A6C7-4FEB-9BB6-776E43D1DA91}</Project>
+      <Name>Archimedes.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

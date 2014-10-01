@@ -48,7 +48,7 @@ namespace Archimedes.Web.App_Start
         private static IKernel CreateKernel()
         {
 			Common.Bootstrapper.Boot(BootConfiguration.DefaultConfiguration.AddAssemblySearchPattern("Archimedes*.dll"));
-			var kernel = ((NinjectServiceLocater)Common.Bootstrapper.BootedKernel.ServiceLocater).Kernel;
+			var kernel = ((NinjectServiceLocator)Common.Bootstrapper.BootedKernel.ServiceLocator).Kernel;
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);

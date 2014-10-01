@@ -1,7 +1,10 @@
 ﻿namespace Archimedes.Common.Commands
 {
 	using System;
+	using System.Collections.Generic;
 	using System.Diagnostics;
+
+	using Archimedes.Common.Validation;
 
 	/// <summary>
 	/// The response.
@@ -52,18 +55,29 @@
 		}
 
 		/// <summary>
-		/// Gets or sets a value indicating whether success.
-		/// </summary>
-		public bool Success { get; set; }
-
-		/// <summary>
 		/// Gets or sets the exception.
 		/// </summary>
 		public Exception Exception { get; set; }
 
+		/// <summary>
+		/// Gets or sets the success message that could be displayed to the user if the command is successful.
+		/// </summary>
 		public string SuccessMessage { get; set; }
 
+		/// <summary>
+		/// Gets or sets the error message that could be displayed to the user if the command is not successful.
+		/// </summary>
 		public string ErrorMessage { get; set; }
+
+		/// <summary>
+		/// Gets or sets the result type.
+		/// </summary>
+		public ResponseTypes ResultType { get; set; }
+
+		/// <summary>
+		/// Gets or sets the validation errors.
+		/// </summary>
+		public List<FailureMessage> ValidationErrors { get; set; }
 
 		/// <summary>
 		/// The start.

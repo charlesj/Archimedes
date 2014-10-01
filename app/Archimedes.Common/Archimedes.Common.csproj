@@ -64,6 +64,7 @@
     <Compile Include="Commands\CommandLocator.cs" />
     <Compile Include="Commands\Headquarters.cs" />
     <Compile Include="Commands\ICommandLocator.cs" />
+    <Compile Include="Commands\ResponseTypes.cs" />
     <Compile Include="Exceptions\PancakeException.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
@@ -87,8 +88,8 @@
     <Compile Include="Commands\Response.cs" />
     <Compile Include="SanityCheckers\ICheckKernelSanity.cs" />
     <Compile Include="SanityCheckers\SettingsSanityCheck.cs" />
-    <Compile Include="ServiceLocater\IServiceLocater.cs" />
-    <Compile Include="ServiceLocater\NinjectServiceLocater.cs" />
+    <Compile Include="ServiceLocater\IServiceLocator.cs" />
+    <Compile Include="ServiceLocater\NinjectServiceLocator.cs" />
     <Compile Include="Settings\ISettings.cs" />
     <Compile Include="Settings\ReflectiveSettings.cs" />
     <Compile Include="Settings\Settings.cs" />

@@ -14,40 +14,68 @@
 	/// <typeparam name="TResult">
 	/// The Type of the result
 	/// </typeparam>
-	public abstract class BusinessCommand<TRequest, TResult> : BaseCommand<TRequest, TResult> where TRequest : Request
+	public abstract class AuthorizedBusinessCommand<TRequest, TResult> : BaseCommand<TRequest, TResult> where TRequest : Request
 	{
+		private readonly IBusinessServices businessServices;
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BusinessCommand{TRequest,TResult}"/> class.
 		/// </summary>
-		/// <param name="mapper">
-		/// The mapper.
+		/// <param name="businessServices">
+		/// The business Services.
 		/// </param>
-		/// <param name="validator">
-		/// The validator.
-		/// </param>
-		/// <param name="data">
-		/// The data.
-		/// </param>
-		protected BusinessCommand(IMappingService mapper, IValidateThings validator, IDataStorage data)
+		protected AuthorizedBusinessCommand(IBusinessServices businessServices)
+			: base(businessServices.Validator)
 		{
-			this.Mapper = mapper;
-			this.Validator = validator;
-			this.Data = data;
+			this.businessServices = businessServices;
 		}
 
 		/// <summary>
 		/// Gets or sets the mapper.
 		/// </summary>
-		protected IMappingService Mapper { get; set; }
+		protected IMappingService Mapper
+		{
+			get
+			{
+				return this.businessServices.Mapper;
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the validator.
 		/// </summary>
-		protected IValidateThings Validator { get; set; }
+		protected IValidateThings Validator
+		{
+			get
+			{
+				return this.businessServices.Validator;
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the data.
 		/// </summary>
-		protected IDataStorage Data { get; set; }
+		protected IDataStorage DataStore
+		{
+			get
+			{
+				return this.businessServices.DataStore;
+			}
+		}
+	}
+
+	public abstract class BusinessCommand<TRequest, TResult> : AuthorizedBusinessCommand<TRequest, TResult>
+		where TRequest : Request
+	{
+		protected BusinessCommand(IBusinessServices businessServices)
+			: base(businessServices)
+		{
+		}
+
+		protected override bool Authorize()
+		{
+			// This command doesn't require specific authorization.
+			return true;
+		}
 	}
 }

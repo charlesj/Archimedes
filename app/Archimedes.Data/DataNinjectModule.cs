@@ -11,7 +11,10 @@
 		{
 			this.Bind<IDataStorage>().To<DataStorage>().InSingletonScope();
 
+			this.Bind<IJournalEntryRepository>().To<JournalEntryRepository>();
 			this.Bind<IManuscriptRepository>().To<ManuscriptRepository>();
+			this.Bind<IUserRepository>().To<UserRepository>();
+			this.Bind<IUserSettingsRepository>().To<UserSettingsRepository>();
 		}
 	}
 }

@@ -26,7 +26,7 @@
 			this.configuration = configuration;
 			this.WriteIfVerbose("Booting...");
 
-			this.ServiceLocater = new NinjectServiceLocater(configuration.AssemblySearchPatterns.ToArray());
+			this.ServiceLocator = new NinjectServiceLocator(configuration.AssemblySearchPatterns.ToArray());
 
 			if (this.configuration.CheckSanity)
 			{
@@ -39,7 +39,7 @@
 		/// <summary>
 		/// Gets the service locater.
 		/// </summary>
-		public IServiceLocater ServiceLocater { get; private set; }
+		public IServiceLocator ServiceLocator { get; private set; }
 
 		/// <summary>
 		/// Conducts a sanity check on the booted result.

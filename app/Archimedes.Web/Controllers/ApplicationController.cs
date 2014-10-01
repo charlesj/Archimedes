@@ -13,8 +13,8 @@
 		protected AjaxResult ProcessRequest<TRequest, TResult>(TRequest request) where TRequest : Request
 		{
 			AjaxResult ajaxResult;
-			var commandLocator = Bootstrapper.BootedKernel.ServiceLocater.GetService<ICommandLocator>();
-			var logger = Bootstrapper.BootedKernel.ServiceLocater.GetService<ILogger>();
+			var commandLocator = Bootstrapper.BootedKernel.ServiceLocator.GetService<ICommandLocator>();
+			var logger = Bootstrapper.BootedKernel.ServiceLocator.GetService<ILogger>();
 			BaseCommand<TRequest, TResult> command = null;
 			
 			try
@@ -22,15 +22,21 @@
 				command = commandLocator.FindCommand<TRequest, TResult>();
 				var result = command.Execute(request);
 
-				if (result.Success)
+				switch (result.ResultType)
 				{
-					logger.Info("Successfully Processed Request", new { request, result });
-					ajaxResult = new AjaxSuccessfulResult(result);
-				}
-				else
-				{
-					logger.Error("Error Processing Request", new { request, result });
-					ajaxResult = new AjaxErrorResult(result.ErrorMessage, result);
+					case ResponseTypes.Success:
+						logger.Info("Successfully Processed Request", new { request, result });
+						ajaxResult = new AjaxSuccessfulResult(result);
+						break;
+					case ResponseTypes.Error:
+					case ResponseTypes.InvalidRequest:
+					case ResponseTypes.Unauthorized:
+						logger.Error("Error Processing Request", new { request, result });
+						ajaxResult = new AjaxErrorResult(result.ErrorMessage, result);
+						break;
+					default:
+						ajaxResult = new AjaxErrorResult("Unknown response type", result);
+						break;
 				}
 			}
 			catch (Exception exception)

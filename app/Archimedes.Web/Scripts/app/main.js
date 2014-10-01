@@ -20,7 +20,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', '../pace'],  
     
     system.debug(true);
 
-    app.title = 'Word Writer';
+    app.title = 'Archimedes';
 
     app.configurePlugins({
         router:true,
@@ -37,6 +37,6 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', '../pace'],  
         viewLocator.useConvention();
 
         //Show the app by setting the root view model for our application with a transition.
-        app.setRoot('viewmodels/shell', 'entrance');
+        app.setRoot('viewmodels/shell');
     });
 });

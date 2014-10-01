@@ -2,6 +2,12 @@
 {
 	public interface IDataStorage
 	{
-		IManuscriptRepository Manuscripts { get; } 
+		IJournalEntryRepository JournalEntries { get; }
+
+		IManuscriptRepository Manuscripts { get; }
+
+		IUserRepository Users { get; }
+
+		IUserSettingsRepository UserSettings { get;}
 	}
 }

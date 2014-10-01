@@ -5,7 +5,7 @@
 	/// <summary>
 	/// Defines a basic service locater.
 	/// </summary>
-	public interface IServiceLocater 
+	public interface IServiceLocator 
 	{
 		/// <summary>
 		/// The get service.
