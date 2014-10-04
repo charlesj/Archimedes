@@ -7,7 +7,7 @@
 	/// <summary>
 	/// The add journal entry request.
 	/// </summary>
-	public class AddJournalEntryRequest : Request
+	public class AddJournalEntryRequest : UnauthorizedRequest
 	{
 		public int UserId { get; set; }
 

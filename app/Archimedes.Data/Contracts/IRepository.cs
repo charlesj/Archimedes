@@ -15,7 +15,7 @@
 
 		TModel Update(TModel instance);
 
-		void Delete(TModel instance);
+		void Delete(int id);
 
 		IEnumerable<TModel> GetAll();
 	}

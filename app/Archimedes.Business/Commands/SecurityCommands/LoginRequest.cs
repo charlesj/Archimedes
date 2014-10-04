@@ -5,7 +5,7 @@
 	/// <summary>
 	/// The login request.
 	/// </summary>
-	public class LoginRequest : Request
+	public class LoginRequest : UnauthorizedRequest
 	{
 		public string Username { get; set; }
 

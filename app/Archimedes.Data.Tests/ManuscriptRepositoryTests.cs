@@ -40,10 +40,10 @@
 		public void RepositoryCanDelete()
 		{
 			var manuscript = new Manuscript();
-			this.SystemUnderTest.Insert(manuscript);
+			manuscript = this.SystemUnderTest.Insert(manuscript);
 			var currentCount = this.SystemUnderTest.GetAll().Count();
 			
-			this.SystemUnderTest.Delete(manuscript);
+			this.SystemUnderTest.Delete(manuscript.Id);
 			var newCount = this.SystemUnderTest.GetAll().Count();
 			Assert.True(newCount == currentCount - 1);
 		}

@@ -5,7 +5,7 @@ namespace Archimedes.Business.Commands.ManuscriptCommands
 	/// <summary>
 	/// The create manuscript request.
 	/// </summary>
-	public class CreateManuscriptRequest : Request
+	public class CreateManuscriptRequest : UnauthorizedRequest
 	{
 		/// <summary>
 		/// Gets or sets the title.

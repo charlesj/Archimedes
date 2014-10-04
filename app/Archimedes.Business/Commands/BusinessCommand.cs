@@ -14,7 +14,7 @@
 	/// <typeparam name="TResult">
 	/// The Type of the result
 	/// </typeparam>
-	public abstract class AuthorizedBusinessCommand<TRequest, TResult> : BaseCommand<TRequest, TResult> where TRequest : Request
+	public abstract class AuthorizedBusinessCommand<TRequest, TResult> : BaseCommand<TRequest, TResult> where TRequest : AuthorizedRequest
 	{
 		private readonly IBusinessServices businessServices;
 
@@ -64,8 +64,7 @@
 		}
 	}
 
-	public abstract class BusinessCommand<TRequest, TResult> : AuthorizedBusinessCommand<TRequest, TResult>
-		where TRequest : Request
+	public abstract class BusinessCommand<TRequest, TResult> : AuthorizedBusinessCommand<TRequest, TResult> where TRequest : UnauthorizedRequest
 	{
 		protected BusinessCommand(IBusinessServices businessServices)
 			: base(businessServices)

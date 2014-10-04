@@ -36,7 +36,7 @@
 			var request = new AddJournalEntryRequest
 			{
 				UserId = user.Id,
-				Content = "Dear Diary, This is my first entry.  Now I'm done.",
+				Content = "Dear Diary, This is my second entry.  Now I'm done.",
 				EntryDate = DateTime.Now
 			};
 			this.SystemUnderTest.Execute(request);

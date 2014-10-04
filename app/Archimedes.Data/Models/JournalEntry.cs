@@ -10,6 +10,6 @@
 
 		public string Content { get; set; }
 
-		public DateTime CreatedOn { get; set; }
+		public DateTime EntryDate { get; set; }
 	}
 }

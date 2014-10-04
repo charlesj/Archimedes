@@ -32,9 +32,9 @@
 			return instance;
 		}
 
-		public void Delete(TModel instance)
+		public void Delete(int id)
 		{
-			this.Storage.Remove(instance.Id);
+			this.Storage.Remove(id);
 		}
 
 		public IEnumerable<TModel> GetAll()

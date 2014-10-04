@@ -5,7 +5,7 @@
 	/// <summary>
 	/// The get all manuscripts request.
 	/// </summary>
-	public class GetAllManuscriptsRequest : Request
+	public class GetAllManuscriptsRequest : UnauthorizedRequest
 	{
 	}
 }

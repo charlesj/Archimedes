@@ -2,7 +2,7 @@
 {
 	using Archimedes.Common.Commands;
 
-	public class GetUserEntriesRequest : Request
+	public class GetUserEntriesRequest : UnauthorizedRequest
 	{
 		public int UserId { get; set; }
 	}

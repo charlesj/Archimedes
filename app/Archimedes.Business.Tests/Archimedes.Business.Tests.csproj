@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="BusinessIntegrationTest.cs" />
     <Compile Include="Commands\JournalCommandTests\AddJournalEntryCommandTests.cs" />
+    <Compile Include="Commands\JournalCommandTests\DeleteJournalEntryCommandTests.cs" />
     <Compile Include="Commands\JournalCommandTests\GetUserEntriesCommandTests.cs" />
+    <Compile Include="Commands\JournalCommandTests\SaveJournalEntryChangesCommandTests.cs" />
     <Compile Include="Commands\ManuscriptCommandTests\CreateManuscriptCommandTests.cs" />
     <Compile Include="Commands\ManuscriptCommandTests\GetAllManuscriptsCommandTests.cs" />
     <Compile Include="Commands\SecurityCommandTests\LoginCommandTests.cs" />
