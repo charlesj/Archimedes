@@ -37,3 +37,4 @@
 /// <reference path="durandal/plugins/serializer.js" />
 /// <reference path="durandal/plugins/widget.js" />
 /// <reference path="durandal/transitions/entrance.js" />
+/// <reference path="app/viewmodels/journal/journal.js" />

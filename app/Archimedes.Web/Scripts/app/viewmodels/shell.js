@@ -8,9 +8,9 @@
         },
         activate: function () {
             router.map([
-                { route: '',			title:'Home',		moduleId: 'viewmodels/home',		nav: true },
-                { route: 'settings',	title:'Settings',	moduleId: 'viewmodels/settings',	nav: false },
-                { route: 'journal',		title:'Journal',	moduleId: 'viewmodels/journal',		nav: true },
+                { route: '',			title:'Home',		moduleId: 'viewmodels/home',				nav: true },
+                { route: 'settings',	title:'Settings',	moduleId: 'viewmodels/settings',			nav: false },
+                { route: 'journal',		title:'Journal',	moduleId: 'viewmodels/journal/journal',		nav: true },
             ]).buildNavigationModel();
             
             return router.activate();

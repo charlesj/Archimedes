@@ -1,5 +1,7 @@
 ﻿namespace Archimedes.Business.Commands
 {
+	using System;
+
 	using Archimedes.Common.Commands;
 
 	/// <summary>
@@ -19,12 +21,12 @@
 		{
 			get
 			{
-				return -1;
+				throw new InvalidOperationException("RequestingUserId is ignored on Unauthorized requests");
 			}
 
 			set
 			{
-				// no op  We don't want to do anything
+				throw new InvalidOperationException("RequestingUserId is ignored on Unauthorized requests");
 			}
 		}
 	}

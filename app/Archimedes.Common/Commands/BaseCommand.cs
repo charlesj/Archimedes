@@ -31,6 +31,8 @@
 			this.valdiator = valdiator;
 			this.SuccessMessage = "Wahoo!";
 			this.ErrorMessage = "Unspecific Error Message";
+			this.ValidationMessage = "The request is invalid";
+			this.UnauthorizedMessage = "You are not authorized to make this request.";
 		}
 
 		/// <summary>
@@ -49,6 +51,16 @@
 		public string ErrorMessage { get; protected set; }
 
 		/// <summary>
+		/// Gets or sets the unauthorized message.
+		/// </summary>
+		public string UnauthorizedMessage { get; protected set; }
+
+		/// <summary>
+		/// Gets or sets the validation message.
+		/// </summary>
+		public string ValidationMessage { get; protected set; }
+
+		/// <summary>
 		/// Executes the command
 		/// </summary>
 		/// <param name="request">
@@ -61,8 +73,7 @@
 		{
 			this.Request = request;
 			var response = new Response<TResult>();
-			response.SuccessMessage = this.SuccessMessage;
-			response.ErrorMessage = this.ErrorMessage;
+			
 			response.Start();
 			try
 			{
@@ -73,22 +84,26 @@
 					{
 						response.SetResult(this.Work());
 						response.ResultType = ResponseTypes.Success;
+						response.Message = this.SuccessMessage;
 					}
 					else
 					{
 						response.ResultType = ResponseTypes.InvalidRequest;
 						response.ValidationErrors = validationResult.FailureMessages;
+						response.Message = this.ValidationMessage;
 					}
 				}
 				else
 				{
 					response.ResultType = ResponseTypes.Unauthorized;
+					response.Message = this.UnauthorizedMessage;
 				}
 			}
 			catch (Exception exception)
 			{
 				response.ResultType = ResponseTypes.Error;
 				response.Exception = exception;
+				response.Message = this.ErrorMessage;
 			}
 
 			response.End();

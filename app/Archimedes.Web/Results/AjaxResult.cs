@@ -19,6 +19,7 @@
         {
             this.SerializerSettings = new JsonSerializerSettings();
             this.HttpStatusCode = 200;
+			 this.Formatting = Formatting.Indented;
         }
 
         /// <summary>

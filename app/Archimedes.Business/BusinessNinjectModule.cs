@@ -3,6 +3,7 @@
 	using System.Collections.Generic;
 
 	using Archimedes.Business.BusinessObjects;
+	using Archimedes.Business.Commands.JournalCommands;
 	using Archimedes.Business.Commands.ManuscriptCommands;
 	using Archimedes.Common.Commands;
 
@@ -21,6 +22,11 @@
 			this.Bind<IBusinessServices>().To<BusinessServices>();
 
 			// Register commands!
+			this.RegisterCommand<GetUserEntriesRequest, List<JournalEntry>,  GetUserEntriesCommand>();
+			this.RegisterCommand<AddJournalEntryRequest, JournalEntry, AddJournalEntryCommand>();
+			this.RegisterCommand<SaveJournalEntryChangesRequest, JournalEntry, SaveJournalEntryChangesCommand>();
+			this.RegisterCommand<DeleteJournalEntryRequest, bool, DeleteJournalEntryCommand>();
+
 			this.RegisterCommand<GetAllManuscriptsRequest, List<Manuscript>, GetAllManuscriptsCommand>();
 			this.RegisterCommand<CreateManuscriptRequest, Manuscript, CreateManuscriptCommand>();
 		}

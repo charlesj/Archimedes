@@ -33,7 +33,7 @@
 			}
 			catch (Exception exception)
 			{
-				throw new ArchimedesException("Could not find command.  Did you boot?", exception);
+				throw new ArchimedesException("Could not find command.  You might not have booted, or the service locator could not find the command (missing bindings).", exception);
 			}
 		}
 	}

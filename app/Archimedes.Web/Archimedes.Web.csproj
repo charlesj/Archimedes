@@ -125,6 +125,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JournalController.cs" />
     <Compile Include="Controllers\ManuscriptsController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
@@ -170,8 +171,10 @@
     <Content Include="Scripts\app\dataService.js" />
     <Content Include="Scripts\app\securityService.js" />
     <Content Include="Scripts\app\viewmodels\createManuscript.js" />
+    <Content Include="Scripts\app\viewmodels\journal\journal.js" />
     <Content Include="Scripts\app\viewmodels\settings.js" />
     <Content Include="Scripts\app\views\createManuscript.html" />
+    <Content Include="Scripts\app\views\journal\journal.html" />
     <Content Include="Scripts\app\views\settings.html" />
     <Content Include="Scripts\durandal\transitions\entrance.js" />
     <Content Include="Scripts\knockout-3.2.0.debug.js" />

@@ -60,14 +60,9 @@
 		public Exception Exception { get; set; }
 
 		/// <summary>
-		/// Gets or sets the success message that could be displayed to the user if the command is successful.
+		/// Gets or sets the message that could be displayed to the user if the command is successful.
 		/// </summary>
-		public string SuccessMessage { get; set; }
-
-		/// <summary>
-		/// Gets or sets the error message that could be displayed to the user if the command is not successful.
-		/// </summary>
-		public string ErrorMessage { get; set; }
+		public string Message { get; set; }
 
 		/// <summary>
 		/// Gets or sets the result type.

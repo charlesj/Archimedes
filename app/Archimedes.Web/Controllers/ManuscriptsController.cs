@@ -22,7 +22,6 @@
 		[HttpGet]
 		public AjaxResult GetAll()
 		{
-			Thread.Sleep(1000);
 			var request = new GetAllManuscriptsRequest();
 			return this.ProcessRequest<GetAllManuscriptsRequest, List<Manuscript>>(request);
 		}
