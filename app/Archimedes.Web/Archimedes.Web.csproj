@@ -168,7 +168,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\app\components\editor\editor.js" />
+    <Content Include="Scripts\app\components\editor\editorTemplate.html" />
     <Content Include="Scripts\app\dataService.js" />
+    <Content Include="Scripts\app\components\componentRegistry.js" />
     <Content Include="Scripts\app\securityService.js" />
     <Content Include="Scripts\app\viewmodels\createManuscript.js" />
     <Content Include="Scripts\app\viewmodels\journal\journal.js" />
@@ -182,6 +185,7 @@
     <Content Include="Scripts\pace.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\screenfull.js" />
     <Content Include="weyland-config.js" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />

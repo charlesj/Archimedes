@@ -5,6 +5,8 @@
 	using Archimedes.Business.BusinessObjects;
 	using Archimedes.Business.Commands.JournalCommands;
 	using Archimedes.Business.Commands.ManuscriptCommands;
+	using Archimedes.Business.Contracts;
+	using Archimedes.Business.Services;
 	using Archimedes.Common.Commands;
 
 	using Ninject.Modules;
@@ -20,6 +22,7 @@
 		public override void Load()
 		{
 			this.Bind<IBusinessServices>().To<BusinessServices>();
+			this.Bind<IUserActivityLog>().To<UserActivityLog>();
 
 			// Register commands!
 			this.RegisterCommand<GetUserEntriesRequest, List<JournalEntry>,  GetUserEntriesCommand>();

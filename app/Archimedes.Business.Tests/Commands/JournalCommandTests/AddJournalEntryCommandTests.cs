@@ -43,5 +43,25 @@
 			var newEntries = this.Data.JournalEntries.GetUsersEntries(user.Id);
 			Assert.Equal(currEntries.Count + 1, newEntries.Count());
 		}
+
+		[Fact]
+		[AutoRollback]
+		public void AddsActivityLog()
+		{
+			var user = this.Data.Users.GetAll().First();
+			var request = new AddJournalEntryRequest
+			{
+				UserId = user.Id,
+				Content = "Dear Diary, This is my first entry.  Now I'm done.",
+				EntryDate = DateTime.Now
+			};
+
+			var currentAcivityCount = this.Data.UserActivities.GetUserActivity(user.Id).ToList().Count;
+			var result = this.SystemUnderTest.Execute(request);
+
+			var newActivityCount = this.Data.UserActivities.GetUserActivity(user.Id).ToList().Count;
+
+			Assert.Equal(currentAcivityCount + 1, newActivityCount);
+		}
 	}
 }

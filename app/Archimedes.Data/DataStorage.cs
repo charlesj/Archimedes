@@ -13,6 +13,9 @@
 		public IManuscriptRepository Manuscripts { get; set; }
 
 		[Inject]
+		public IUserActivityRepository UserActivities { get; set; }
+
+		[Inject]
 		public IUserRepository Users { get; set; }
 
 		[Inject]

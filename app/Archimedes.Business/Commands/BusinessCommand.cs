@@ -1,5 +1,6 @@
 ﻿namespace Archimedes.Business.Commands
 {
+	using Archimedes.Business.Contracts;
 	using Archimedes.Common.Commands;
 	using Archimedes.Common.Mapping;
 	using Archimedes.Common.Validation;
@@ -60,6 +61,14 @@
 			get
 			{
 				return this.businessServices.DataStore;
+			}
+		}
+
+		protected IUserActivityLog UserActivityLog
+		{
+			get
+			{
+				return this.businessServices.UserActivityLog;
 			}
 		}
 	}

@@ -75,11 +75,13 @@
     <Compile Include="Commands\SecurityCommands\LoginCommand.cs" />
     <Compile Include="Commands\SecurityCommands\LoginRequest.cs" />
     <Compile Include="Commands\SecurityCommands\LoginRequestValidator.cs" />
+    <Compile Include="Contracts\IUserActivityLog.cs" />
     <Compile Include="IBusinessServices.cs" />
     <Compile Include="Mappings\JournalEntryMappings.cs" />
     <Compile Include="Mappings\ManuscriptMappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\ManuscriptCommands\GetAllManuscriptsRequest.cs" />
+    <Compile Include="Services\UserActivityLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Archimedes.Common\Archimedes.Common.csproj">

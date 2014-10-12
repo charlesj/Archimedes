@@ -6,7 +6,8 @@
         'transitions' : '../durandal/transitions',
         'knockout': '../knockout-3.2.0',
         'bootstrap': '../bootstrap',
-        'jquery': '../jquery-2.1.1'
+        'jquery': '../jquery-2.1.1',
+		'screenfull': '../screenfull'
     },
     shim: {
         'bootstrap': {

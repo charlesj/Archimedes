@@ -1,4 +1,4 @@
-﻿define(['plugins/http', 'durandal/app', 'knockout', 'durandal/system', 'dataService'], function (http, app, ko, system, dataService) {
+﻿define(['plugins/http', 'durandal/app', 'knockout', 'durandal/system', 'components/componentRegistry', 'dataService'], function (http, app, ko, system, components, dataService) {
 
 	var ctor = function () {
 

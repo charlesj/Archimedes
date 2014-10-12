@@ -1,1 +1,20 @@
-﻿<h2>Journal</h2>
+﻿
+<!--<div class="row">
+    <div class="col-md-4">
+        <div class="journalEntry">
+            <h3>2014-10-05</h3>
+            <editor params="content: newEntryContent"></editor>
+        </div>
+    </div>
+</div>-->
+
+<div class="row">
+    <div class="col-md-4">
+        <div data-bind="foreach: entries">
+            <div class="journalEntry">
+                <h3 data-bind="text: EntryDate"></h3>
+                <p data-bind="text: Content"></p>
+            </div>
+        </div>
+    </div>
+</div>

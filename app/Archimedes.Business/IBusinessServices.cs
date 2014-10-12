@@ -1,5 +1,6 @@
 ﻿namespace Archimedes.Business
 {
+	using Archimedes.Business.Contracts;
 	using Archimedes.Common.Mapping;
 	using Archimedes.Common.Validation;
 	using Archimedes.Data.Contracts;
@@ -11,5 +12,7 @@
 		IValidateThings Validator { get; }
 
 		IDataStorage DataStore { get; }
+
+		IUserActivityLog UserActivityLog { get; }
 	}
 }

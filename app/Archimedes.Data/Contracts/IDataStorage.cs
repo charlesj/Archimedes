@@ -6,6 +6,8 @@
 
 		IManuscriptRepository Manuscripts { get; }
 
+		IUserActivityRepository UserActivities { get; }
+
 		IUserRepository Users { get; }
 
 		IUserSettingsRepository UserSettings { get;}
