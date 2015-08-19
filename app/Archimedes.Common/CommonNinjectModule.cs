@@ -1,6 +1,7 @@
 ﻿namespace Archimedes.Common
 {
 	using Archimedes.Common.Commands;
+	using Archimedes.Common.Exceptions;
 	using Archimedes.Common.Logging;
 	using Archimedes.Common.Mapping;
 	using Archimedes.Common.Settings;
@@ -24,6 +25,7 @@
 			this.Bind<IMappingService>().To<AutoMapperMappingService>();
 			this.Bind<IValidateThings>().To<ValidateThings>();
 			this.Bind<ILogger>().To<NLogLogger>();
+		    this.Bind<IErrorCodeMessageBuilder>().To<ErrorCodeMessageBuilder>();
 		}
 	}
 }

@@ -2,6 +2,7 @@
 {
 	using System;
 
+	using Archimedes.Common.ErrorCodes;
 	using Archimedes.Common.Exceptions;
 
 	/// <summary>
@@ -33,7 +34,9 @@
 			}
 			catch (Exception exception)
 			{
-				throw new ArchimedesException("Could not find command.  You might not have booted, or the service locator could not find the command (missing bindings).", exception);
+			    var requestType = typeof(TRequest);
+			    var resultType = typeof(TResult);
+				throw new ErrorCodeException(CommonErrors.CouldNotLocateCommand, exception, new { RequestType = requestType.ToString(), ResultType = resultType.ToString() });
 			}
 		}
 	}
