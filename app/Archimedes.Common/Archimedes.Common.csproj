@@ -65,6 +65,11 @@
     <Compile Include="Commands\Headquarters.cs" />
     <Compile Include="Commands\ICommandLocator.cs" />
     <Compile Include="Commands\ResponseTypes.cs" />
+    <Compile Include="Exceptions\ErrorCode.cs" />
+    <Compile Include="Exceptions\ErrorCodeException.cs" />
+    <Compile Include="Exceptions\ErrorCodeMessageBuilder.cs" />
+    <Compile Include="Exceptions\ErrorCodeUserInformation.cs" />
+    <Compile Include="Exceptions\IErrorCodeMessageBuilder.cs" />
     <Compile Include="Exceptions\PancakeException.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
