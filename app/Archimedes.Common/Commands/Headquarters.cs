@@ -1,10 +1,10 @@
 ﻿namespace Archimedes.Common.Commands
 {
-	public class Headquarters
+	public class CommandExecutor
 	{
 		private readonly ICommandLocator commandLocator;
 
-		public Headquarters(ICommandLocator commandLocator)
+		public CommandExecutor(ICommandLocator commandLocator)
 		{
 			this.commandLocator = commandLocator;
 		}

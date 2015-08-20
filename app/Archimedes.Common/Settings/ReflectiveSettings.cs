@@ -2,28 +2,16 @@
 {
 	using System;
 
-	using Archimedes.Common.Exceptions;
-	using Archimedes.Common.Extensions;
+	using Exceptions;
+	using Extensions;
 
-	/// <summary>
-	/// This settings object uses reflection to load the settings from application configuration.
-	/// </summary>
 	public class ReflectiveSettings : Settings
 	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ReflectiveSettings"/> class.
-		/// </summary>
-		/// <param name="typeConverter">
-		/// The type converter.
-		/// </param>
 		public ReflectiveSettings(ITypeConverter typeConverter) : base(typeConverter)
 		{
 			this.LoadSettingsUsingReflection();
 		}
 
-		/// <summary>
-		/// Sets the values of the properties of this object with the values from the application configuration file.
-		/// </summary>
 		protected void LoadSettingsUsingReflection()
 		{
 			var properties = this.GetProperties();

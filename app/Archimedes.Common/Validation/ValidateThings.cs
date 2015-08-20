@@ -3,41 +3,17 @@
 	using System;
 	using System.Linq;
 
-	using Archimedes.Common.Mapping;
+	using Mapping;
 
-	/// <summary>
-	/// The validate things.
-	/// </summary>
 	public class ValidateThings : IValidateThings
 	{
-		/// <summary>
-		/// The mapping service.
-		/// </summary>
 		private readonly IMappingService mappingService;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ValidateThings"/> class.
-		/// </summary>
-		/// <param name="mappingService">
-		/// The mapping service.
-		/// </param>
 		public ValidateThings(IMappingService mappingService)
 		{
 			this.mappingService = mappingService;
 		}
 
-		/// <summary>
-		/// Checks if the object is valid, and if not, throws the validation exception.
-		/// </summary>
-		/// <param name="obj">
-		/// The obj.
-		/// </param>
-		/// <typeparam name="T">
-		/// The type of the obejct to check.
-		/// </typeparam>
-		/// <exception cref="ValidationException">
-		/// Thrown if the object does not pass muster.
-		/// </exception>
 		public void CheckValidationAndThrow<T>(T obj)
 		{
 			var result = this.CheckValidation(obj);
@@ -47,36 +23,12 @@
 			}
 		}
 
-		/// <summary>
-		/// Checks if the object is valid and returns the result.
-		/// </summary>
-		/// <param name="obj">
-		/// The obj.
-		/// </param>
-		/// <typeparam name="T">
-		/// The type of the object to check validation.
-		/// </typeparam>
-		/// <returns>
-		/// The <see cref="Result"/>.
-		/// </returns>
 		public Result CheckValidation<T>(T obj)
 		{
 			var validator = this.LocateValidator<T>();
 			return validator.Check(obj);
 		}
 
-		/// <summary>
-		/// The locate validator.
-		/// </summary>
-		/// <typeparam name="T">
-		/// The type of the validator to locate
-		/// </typeparam>
-		/// <returns>
-		/// The validator for the object type.
-		/// </returns>
-		/// <exception cref="InvalidOperationException">
-		/// When there is some sort of problem.
-		/// </exception>
 		private IValidate<T> LocateValidator<T>()
 		{            
 			var argumentType = typeof(T);

@@ -4,20 +4,10 @@
 	using System.Collections.Generic;
 	using System.Linq;
 
-	using Archimedes.Common.Settings;
+	using Settings;
 
-	/// <summary>
-	/// Checks the sanity of the settings objects.  Takes all available implementations of ISettings and
-	/// makes sure their properties has values.
-	/// </summary>
 	public class SettingsSanityCheck : ICheckKernelSanity
 	{
-		/// <summary>
-		/// Runs the check against settings objects.
-		/// </summary>
-		/// <param name="kernel">
-		/// The kernel.
-		/// </param>
 		public void Check(IKernel kernel)
 		{
 			var assemblies = AppDomain.CurrentDomain.GetAssemblies();

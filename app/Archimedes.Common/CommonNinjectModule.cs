@@ -1,22 +1,16 @@
 ﻿namespace Archimedes.Common
 {
-	using Archimedes.Common.Commands;
-	using Archimedes.Common.Exceptions;
-	using Archimedes.Common.Logging;
-	using Archimedes.Common.Mapping;
-	using Archimedes.Common.Settings;
-	using Archimedes.Common.Validation;
+	using Commands;
+	using Exceptions;
+	using Logging;
+	using Mapping;
+	using Settings;
+	using Validation;
 
 	using Ninject.Modules;
-
-	/// <summary>
-	/// The pancakes ninject module.  Contains the bindings for the internal interfaces.
-	/// </summary>
+    
 	public class CommonNinjectModule : NinjectModule
 	{
-		/// <summary>
-		/// Binds the internal pancakes types to their implementations.
-		/// </summary>
 		public override void Load()
 		{
 			this.Bind<ITypeConverter>().To<TypeConverter>();

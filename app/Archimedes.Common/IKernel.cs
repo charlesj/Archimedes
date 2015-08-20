@@ -1,31 +1,11 @@
 ﻿namespace Archimedes.Common
 {
-	using Archimedes.Common.ServiceLocater;
+	using ServiceLocater;
 
-	/// <summary>
-	/// The Kernel interface.
-	/// </summary>
 	public interface IKernel
 	{
-		/// <summary>
-		/// Gets the service locater.
-		/// </summary>
 		IServiceLocator ServiceLocator { get; }
-
-		/// <summary>
-		/// Conducts a sanity check on the booted result.
-		/// </summary>
 		void CheckSanity();
-
-		/// <summary>
-		/// The write if verbose.
-		/// </summary>
-		/// <param name="format">
-		/// The format.
-		/// </param>
-		/// <param name="args">
-		/// The args.
-		/// </param>
 		void WriteIfVerbose(string format, params object[] args);
 	}
 }

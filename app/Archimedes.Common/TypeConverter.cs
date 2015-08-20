@@ -3,28 +3,10 @@
 	using System;
 	using System.ComponentModel;
 
-	using Archimedes.Common.Exceptions;
+	using Exceptions;
 
-	/// <summary>
-	/// The type converter is used to genericly convert an object from one type to another.
-	/// </summary>
 	public class TypeConverter : ITypeConverter
 	{
-		/// <summary>
-		/// Converts an object to another type, with some error checking.
-		/// </summary>
-		/// <param name="value">
-		/// The value is the object to convert from.
-		/// </param>
-		/// <param name="targetType">
-		/// The target type.
-		/// </param>
-		/// <returns>
-		/// The <see cref="object"/>.
-		/// </returns>
-		/// <exception cref="ArchimedesException">
-		/// Throws an exception if the requested conversion is not valid.
-		/// </exception>
 		public object Convert(object value, Type targetType)
 		{
 			var converter = TypeDescriptor.GetConverter(targetType);
@@ -41,18 +23,6 @@
 			return converter.ConvertTo(value, targetType);
 		}
 
-		/// <summary>
-		/// Converts an object to another type generically.
-		/// </summary>
-		/// <param name="value">
-		/// The value.
-		/// </param>
-		/// <typeparam name="TTargetType">
-		/// The type to target.
-		/// </typeparam>
-		/// <returns>
-		/// The <see cref="TTargetType"/>.
-		/// </returns>
 		public TTargetType Convert<TTargetType>(object value)
 		{
 			return (TTargetType)this.Convert(value, typeof(TTargetType));

@@ -3,30 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
-
-    /// <summary>
-    /// The string extentions.  Stolen Shameless from: http://haacked.com/archive/2009/01/14/named-formats-redux.aspx/
-    /// </summary>
+    
+    // Stolen shamelessly from: http://haacked.com/archive/2009/01/14/named-formats-redux.aspx/
     public static class StringExtentions
     {
-        /// <summary>
-        /// The format with.
-        /// </summary>
-        /// <param name="format">
-        /// The format.
-        /// </param>
-        /// <param name="provider">
-        /// The provider.
-        /// </param>
-        /// <param name="source">
-        /// The source.
-        /// </param>
-        /// <returns>
-        /// The <see cref="string"/>.
-        /// </returns>
-        /// <exception cref="ArgumentNullException">
-        /// The string cannot be null.
-        /// </exception>
         public static string FormatWith(this string format, IFormatProvider provider, object source)
         {
             if (format == null)
@@ -60,18 +40,6 @@
             return string.Format(provider, rewrittenFormat, values.ToArray());
         }
 
-        /// <summary>
-        /// The format with.
-        /// </summary>
-        /// <param name="format">
-        /// The format.
-        /// </param>
-        /// <param name="source">
-        /// The source.
-        /// </param>
-        /// <returns>
-        /// The <see cref="string"/>.
-        /// </returns>
         public static string FormatWith(this string format, object source)
         {
             return FormatWith(format, null, source);

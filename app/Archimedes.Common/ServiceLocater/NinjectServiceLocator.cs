@@ -4,23 +4,11 @@
 	using System.Linq;
 
 	using Ninject;
-
-	/// <summary>
-	/// Implementation of the service lcoater using Ninject, with some configuration options.
-	/// </summary>
+	
 	public class NinjectServiceLocator : IServiceLocator
 	{
-		/// <summary>
-		/// The kernel.
-		/// </summary>
 		private readonly IKernel kernel;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="NinjectServiceLocator"/> class.
-		/// </summary>
-		/// <param name="assemblySearchPatterns">
-		/// The assembly search patterns are used to search for ninject modules.  If no patterns are passed, all .dlls' are searched.
-		/// </param>
 		public NinjectServiceLocator(params string[] assemblySearchPatterns)
 		{
 			this.kernel = new StandardKernel();
@@ -37,9 +25,6 @@
 			}
 		}
 
-		/// <summary>
-		/// Gets the kernel, beacuse asp.net needs this.
-		/// </summary>
 		public IKernel Kernel
 		{
 			get
@@ -48,29 +33,11 @@
 			}
 		}
 
-		/// <summary>
-		/// The get service.
-		/// </summary>
-		/// <param name="type">
-		/// The type.
-		/// </param>
-		/// <returns>
-		/// The <see cref="object"/>.
-		/// </returns>
 		public object GetService(Type type)
 		{
 			return this.kernel.Get(type);
 		}
 
-		/// <summary>
-		/// The get service.
-		/// </summary>
-		/// <typeparam name="TServiceType">
-		/// The type of the service to locate.
-		/// </typeparam>
-		/// <returns>
-		/// The <see cref="TServiceType"/>.
-		/// </returns>
 		public TServiceType GetService<TServiceType>()
 		{
 			return this.kernel.Get<TServiceType>();

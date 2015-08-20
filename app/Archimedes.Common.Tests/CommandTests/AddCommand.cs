@@ -3,9 +3,9 @@
 	using System;
 	using System.Linq;
 
-	using Archimedes.Common.Commands;
-	using Archimedes.Common.Mapping;
-	using Archimedes.Common.Validation;
+	using Commands;
+	using Mapping;
+	using Validation;
 
 	using FluentValidation;
 
@@ -40,7 +40,7 @@
 		[Fact]
 		public void CanUseHeadquarters()
 		{
-			var headquarters = Bootstrapper.BootedKernel.ServiceLocator.GetService<Headquarters>();
+			var headquarters = Bootstrapper.BootedKernel.ServiceLocator.GetService<CommandExecutor>();
 			var response = headquarters.Execute<AddRequest, int>(new AddRequest { FirstNumber = 2, SecondNumber = 2 });
 			Assert.True(response.Result == 4);
 		}
@@ -48,7 +48,7 @@
 		[Fact]
 		public void CanReadElapsed()
 		{
-			var headquarters = Bootstrapper.BootedKernel.ServiceLocator.GetService<Headquarters>();
+			var headquarters = Bootstrapper.BootedKernel.ServiceLocator.GetService<CommandExecutor>();
 			var response = headquarters.Execute<AddRequest, int>(new AddRequest { FirstNumber = 2, SecondNumber = 2 });
 			Console.Write("Execution Time: {0}ms", response.ExecutionTime);
 		}
