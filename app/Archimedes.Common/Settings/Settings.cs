@@ -4,6 +4,7 @@
 
 	using Exceptions;
 	using Extensions;
+	using ErrorCodes;
 
 	public class Settings : ISettings
 	{
@@ -28,8 +29,7 @@
 				var value = property.GetValue(this);
 				if (value == null)
 				{
-					var message = string.Format("Settings property is missing value: {0}", property.Name);
-					throw new ArchimedesException(message, this);
+					throw new ErrorCodeException(CommonErrors.SettingsFailedSanityCheck, new { property.Name });
 				}
 			}
 		}
@@ -40,7 +40,7 @@
 			if (string.IsNullOrEmpty(value))
 			{
 				string message = string.Format("Missing Settings Value: {0}", key);
-				throw new ArchimedesException(message);
+				throw new ErrorCodeException(CommonErrors.SettingsValueNotPresentInConfig, new { key });
 			}
 
 			return value;
