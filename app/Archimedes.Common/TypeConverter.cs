@@ -4,6 +4,7 @@
 	using System.ComponentModel;
 
 	using Exceptions;
+	using ErrorCodes;
 
 	public class TypeConverter : ITypeConverter
 	{
@@ -12,7 +13,7 @@
 			var converter = TypeDescriptor.GetConverter(targetType);
 			if (!converter.IsValid(value) || !converter.CanConvertFrom(value.GetType()))
 			{
-				throw new ArchimedesException("Attempted to convert to a type that was not valid.", new { targetType, value });
+				throw new ErrorCodeException(CommonErrors.TypeConversionToInvalidType, new { targetType, value });
 			}
 
 			if (value is string)

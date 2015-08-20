@@ -1,9 +1,10 @@
 ﻿namespace Archimedes.Common
 {
-	using Archimedes.Common.Exceptions;
-	using Archimedes.Common.Mapping;
+    using ErrorCodes;
+    using Exceptions;
+    using Mapping;
 
-	public static class Bootstrapper
+    public static class Bootstrapper
 	{
 		private static IKernel bootedKernel;
 
@@ -21,7 +22,7 @@
 			{
 				if (bootedKernel == null)
 				{
-					throw new ArchimedesException("You cannot access the pancake kernel without first booting it.");
+                    throw new ErrorCodeException(CommonErrors.CannotAccessKernelWithoutBooting);
 				}
 
 				return bootedKernel;

@@ -9,10 +9,8 @@
 
 	public class ErrorCodeMessageBuilderTests : BaseIntegrationTest<IErrorCodeMessageBuilder>
 	{
-		/// <summary>
 		/// If an exception is passed in that is not an error code exception, then it should just
 		/// return the default message.
-		/// </summary>
 		[Fact]
 		public void NonErrorCodeExceptionReturnsDefaultMessage()
 		{
@@ -27,10 +25,8 @@
 			Assert.Null(userInfo.Code);
 		}
 
-		/// <summary>
 		/// If the resource manager is null, we should return the default error message, but with 
 		/// the error code information from the exception filled out.
-		/// </summary>
 		[Fact]
 		public void IfResourceManagerIsNullDefaultMessageIsReturnedWithErrorCodeInformation()
 		{
@@ -41,9 +37,7 @@
 			Assert.Equal(exception.InstanceIdentifier.ToString(), userInfo.Instance);
 		}
 
-		/// <summary>
 		/// If the resource passed in does have a match, it's value should be returned.
-		/// </summary>
 		[Fact]
 		public void MessageFromResourceIsUsedIfAvailable()
 		{
@@ -52,9 +46,7 @@
 			Assert.Equal("You're insane!  You know that, right?", userInfo.Message);
 		}
 
-		/// <summary>
 		/// If the exception has a formatting object, it is used to format the message.
-		/// </summary>
 		[Fact]
 		public void MessageFromResourceIsFormattedIfPossible()
 		{

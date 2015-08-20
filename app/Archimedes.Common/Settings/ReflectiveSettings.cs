@@ -1,11 +1,12 @@
 ﻿namespace Archimedes.Common.Settings
 {
-	using System;
+    using System;
 
-	using Exceptions;
-	using Extensions;
+    using Exceptions;
+    using Extensions;
+    using ErrorCodes;
 
-	public class ReflectiveSettings : Settings
+    public class ReflectiveSettings : Settings
 	{
 		public ReflectiveSettings(ITypeConverter typeConverter) : base(typeConverter)
 		{
@@ -26,8 +27,7 @@
 				}
 				catch (Exception exception)
 				{
-					string message = string.Format("Error trying to set a value for {0} from application configuration.  See inner exception for more details.", property.Name);
-					throw new ArchimedesException(message, exception);
+					throw new ErrorCodeException(CommonErrors.CouldNotSetSettingValue, exception, new { property.Name });
 				}
 			}
 		}

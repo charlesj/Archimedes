@@ -2,8 +2,8 @@
 {
 	using System.Linq;
 
-	using Archimedes.Common.Mapping;
-	using Archimedes.Common.Validation;
+	using Mapping;
+	using Validation;
 
 	using FluentValidation;
 

@@ -71,7 +71,6 @@
     <Compile Include="Exceptions\ErrorCodeMessageBuilder.cs" />
     <Compile Include="Exceptions\ErrorCodeUserInformation.cs" />
     <Compile Include="Exceptions\IErrorCodeMessageBuilder.cs" />
-    <Compile Include="Exceptions\PancakeException.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtentions.cs" />

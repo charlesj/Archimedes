@@ -1,16 +1,15 @@
 ﻿namespace Archimedes.Common.Tests.ValidationTests
 {
-	using System;
-	using System.Diagnostics.CodeAnalysis;
+    using System;
 
-	using Archimedes.Common.Mapping;
-	using Archimedes.Common.Validation;
+    using Mapping;
+    using Validation;
 
-	using FluentValidation;
+    using FluentValidation;
 
-	using Xunit;
+    using Xunit;
 
-	public class ValidateThingsTests
+    public class ValidateThingsTests
     {
         private readonly ValidateThings validatorLocator;
 

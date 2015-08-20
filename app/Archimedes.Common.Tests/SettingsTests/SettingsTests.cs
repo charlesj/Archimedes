@@ -1,15 +1,14 @@
 ﻿namespace Archimedes.Common.Tests.SettingsTests
 {
-	using System;
-	using System.Diagnostics.CodeAnalysis;
+    using System;
 
-	using Archimedes.Common;
-	using Archimedes.Common.Exceptions;
-	using Archimedes.Common.Settings;
+    using Common;
+    using Exceptions;
+    using Settings;
 
-	using Xunit;
+    using Xunit;
 
-	public class SettingsTests
+    public class SettingsTests
 	{
 		[Fact]
 		public void CanInstantiateSettings()
@@ -28,13 +27,13 @@
 		public void BadSettingsFailsSanityCheck()
 		{
 			var settings = new BadSettings(new TypeConverter());
-			Assert.Throws<ArchimedesException>(() => settings.CheckAllSettingForValues());
+			Assert.Throws<ErrorCodeException>(() => settings.CheckAllSettingForValues());
 		}
 
 		[Fact]
 		public void BadSettingsTryingToBeGoodFailsOnConstruction()
 		{
-			Assert.Throws<ArchimedesException>(() => new BadSettingsTryingToBeGood(new TypeConverter()));
+			Assert.Throws<ErrorCodeException>(() => new BadSettingsTryingToBeGood(new TypeConverter()));
 		}
 
 		[Fact]
@@ -66,7 +65,7 @@
 		[Fact]
 		public void BadReflectiveSettingsCannotInstantiate()
 		{
-			Assert.Throws<ArchimedesException>(() => new BadReflectiveSettings(new TypeConverter()));
+			Assert.Throws<ErrorCodeException>(() => new BadReflectiveSettings(new TypeConverter()));
 		}
 
 		internal class BadSettings : Settings
