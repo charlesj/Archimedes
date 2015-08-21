@@ -1,14 +1,12 @@
 ﻿namespace Archimedes.Common.Tests.SettingsTests
 {
-    using System;
+	using System;
+	using Common;
+	using Exceptions;
+	using Settings;
+	using Xunit;
 
-    using Common;
-    using Exceptions;
-    using Settings;
-
-    using Xunit;
-
-    public class SettingsTests
+	public class SettingsTests
 	{
 		[Fact]
 		public void CanInstantiateSettings()

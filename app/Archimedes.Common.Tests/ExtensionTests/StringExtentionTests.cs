@@ -54,16 +54,11 @@
 				var testData = new List<object[]>();
 
 				// tests from Haacked
-
 				testData.Add(new object[] { "{bar}", new { foo = 123.45 } });
 				testData.Add(new object[] { "{bar", new { foo = 123.45 } });
 				testData.Add(new object[] { "{foo}}", new { foo = 123.45 } });
 				testData.Add(new object[] { "{foo}}}}bar", new { foo = 123.45 } });
 				testData.Add(new object[] { "{foo}}}}", new { foo = 123.45 } });
-				//testData.Add(new object[] { "{foo}}}", new { foo = 123.45 } });
-				// not a format exception, but an argument null exception
-				// testData.Add(new object[] { null, 123 });
-
 
 				return testData.ToArray();
 			}

@@ -1,10 +1,7 @@
 ﻿namespace Archimedes.Common.Tests.MappingTests
 {
-
 	using Mapping;
-
 	using AutoMapper;
-
 	using Xunit;
 
 	public class MappingServiceTests
@@ -16,9 +13,7 @@
 			config.Configure();
 
 			var mapper = new AutoMapperMappingService();
-
 			var soccer = new SoccerPlayer { Name = "Fozzy" };
-
 			var mapped = mapper.Map<SoccerPlayer, FootballPlayer>(soccer);
 
 			Assert.Equal("Fozzy", mapped.Name);
