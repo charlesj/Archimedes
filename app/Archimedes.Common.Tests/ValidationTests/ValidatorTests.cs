@@ -39,7 +39,7 @@
             var kernel = new StandardKernel();
             kernel.Bind<IValidate<Simple>>().To<SimpleValidator>();
             kernel.Bind<IMappingService>().To<AutoMapperMappingService>();
-            Assert.DoesNotThrow(() => kernel.Get<IValidate<Simple>>());
+            kernel.Get<IValidate<Simple>>();
         }
 
         [Fact]

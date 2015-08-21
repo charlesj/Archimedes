@@ -3,16 +3,14 @@
 	using System;
 	using System.Linq;
 
-	using Archimedes.Business.Commands.JournalCommands;
-	using Archimedes.Common.Commands;
+	using Business.Commands.JournalCommands;
+	using Common.Commands;
 
 	using Xunit;
-	using Xunit.Extensions;
 
 	public class AddJournalEntryCommandTests : BusinessIntegrationTest<AddJournalEntryCommand>
 	{
 		[Fact]
-		[AutoRollback]
 		public void CanExecuteCommand()
 		{
 			var user = this.Data.Users.GetAll().First();
@@ -28,7 +26,6 @@
 		}
 
 		[Fact]
-		[AutoRollback]
 		public void AddsJournalEntryToTheCollection()
 		{
 			var user = this.Data.Users.GetAll().First();
@@ -45,7 +42,6 @@
 		}
 
 		[Fact]
-		[AutoRollback]
 		public void AddsActivityLog()
 		{
 			var user = this.Data.Users.GetAll().First();

@@ -23,7 +23,7 @@
         public void CanValidate()
         {
             var simple = new Simple { Name = "Fozzy", EmailAddress = "fozzy@wokka.com" };
-            Assert.DoesNotThrow(() => this.validatorLocator.CheckValidation(simple));
+            this.validatorLocator.CheckValidation(simple);
         }
 
         [Fact]

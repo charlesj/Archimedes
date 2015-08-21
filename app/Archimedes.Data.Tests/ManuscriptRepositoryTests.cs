@@ -13,7 +13,7 @@
 		[Fact]
 		public void RepositoryCanGetAll()
 		{
-			Assert.DoesNotThrow(() => this.SystemUnderTest.GetAll());
+			var all = this.SystemUnderTest.GetAll();
 		}
 
 		[Fact]

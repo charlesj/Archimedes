@@ -13,14 +13,14 @@
 		[Fact]
 		public void CanInstantiateSettings()
 		{
-			Assert.DoesNotThrow(() => new Settings(new TypeConverter()));
+			var settings = new Settings(new TypeConverter());
 		} 
 
 		[Fact]
 		public void CheckSettingsForValuesPasses()
 		{
 			var settings = new Settings(new TypeConverter());
-			Assert.DoesNotThrow(settings.CheckAllSettingForValues);
+			settings.CheckAllSettingForValues();
 		}
 
 		[Fact]
@@ -39,27 +39,27 @@
 		[Fact]
 		public void CanInstantiateTestingSettings()
 		{
-			Assert.DoesNotThrow(() => new TestingSettings(new TypeConverter()));
+			var testSettings = new TestingSettings(new TypeConverter());
 		}
 
 		[Fact]
 		public void TestingSettingsPassesSanityCheck()
 		{
 			var settings = new TestingSettings(new TypeConverter());
-			Assert.DoesNotThrow(settings.CheckAllSettingForValues);
+			settings.CheckAllSettingForValues();
 		}
 
 		[Fact]
 		public void CanInstantiateTestingSettingsUsingReflection()
 		{
-			Assert.DoesNotThrow(() => new TestingSettingsUsingReflection(new TypeConverter()));
+			var settings = new TestingSettingsUsingReflection(new TypeConverter());
 		}
 
 		[Fact]
 		public void TestingReflectiveSettingsPassesSanityCheck()
 		{
 			var settings = new TestingSettingsUsingReflection(new TypeConverter());
-			Assert.DoesNotThrow(settings.CheckAllSettingForValues);
+			settings.CheckAllSettingForValues();
 		}
 
 		[Fact]
