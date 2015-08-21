@@ -1,12 +1,14 @@
 ﻿namespace Archimedes.Common
 {
 	using System.Collections.Generic;
+	
+	using Ninject.Modules;
 
 	public class BootConfiguration
 	{
 		public BootConfiguration()
 		{
-			this.AssemblySearchPatterns = new List<string>();
+			this.Modules = new List<INinjectModule>();
 			this.CheckSanity = true;
 			this.Verbose = false;
 		}
@@ -19,7 +21,7 @@
 			}
 		}
 
-		public List<string> AssemblySearchPatterns { get; set; }
+		public List<INinjectModule> Modules { get; set; }
 
 		public bool CheckSanity { get; set; }
 
@@ -31,9 +33,9 @@
 			return this;
 		}
 
-		public BootConfiguration AddAssemblySearchPattern(string searchPattern)
+		public BootConfiguration AddNinjectModule(INinjectModule module)
 		{
-			this.AssemblySearchPatterns.Add(searchPattern);
+			this.Modules.Add(module);
 			return this;
 		}
 

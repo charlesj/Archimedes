@@ -1,12 +1,12 @@
 ﻿namespace Archimedes.Common.Settings
 {
-    using System;
+	using System;
 
-    using Exceptions;
-    using Extensions;
-    using ErrorCodes;
+	using Exceptions;
+	using Extensions;
+	using ErrorCodes;
 
-    public class ReflectiveSettings : Settings
+	public class ReflectiveSettings : Settings
 	{
 		public ReflectiveSettings(ITypeConverter typeConverter) : base(typeConverter)
 		{

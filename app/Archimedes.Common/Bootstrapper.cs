@@ -1,10 +1,10 @@
 ﻿namespace Archimedes.Common
 {
-    using ErrorCodes;
-    using Exceptions;
-    using Mapping;
+	using ErrorCodes;
+	using Exceptions;
+	using Mapping;
 
-    public static class Bootstrapper
+	public static class Bootstrapper
 	{
 		private static IKernel bootedKernel;
 
@@ -22,7 +22,7 @@
 			{
 				if (bootedKernel == null)
 				{
-                    throw new ErrorCodeException(CommonErrors.CannotAccessKernelWithoutBooting);
+					throw new ErrorCodeException(CommonErrors.CannotAccessKernelWithoutBooting);
 				}
 
 				return bootedKernel;

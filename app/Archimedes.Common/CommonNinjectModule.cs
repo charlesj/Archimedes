@@ -8,7 +8,7 @@
 	using Validation;
 
 	using Ninject.Modules;
-    
+	
 	public class CommonNinjectModule : NinjectModule
 	{
 		public override void Load()
@@ -19,7 +19,7 @@
 			this.Bind<IMappingService>().To<AutoMapperMappingService>();
 			this.Bind<IValidateThings>().To<ValidateThings>();
 			this.Bind<ILogger>().To<NLogLogger>();
-		    this.Bind<IErrorCodeMessageBuilder>().To<ErrorCodeMessageBuilder>();
+			this.Bind<IErrorCodeMessageBuilder>().To<ErrorCodeMessageBuilder>();
 		}
 	}
 }

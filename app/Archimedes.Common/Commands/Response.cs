@@ -4,7 +4,7 @@
 	using System.Collections.Generic;
 	using System.Diagnostics;
 
-	using Archimedes.Common.Validation;
+	using Validation;
 
 	public class Response<TResult>
 	{
@@ -34,8 +34,6 @@
 		}
 
 		public Exception Exception { get; set; }
-
-		public string Message { get; set; }
 
 		public ResponseTypes ResultType { get; set; }
 

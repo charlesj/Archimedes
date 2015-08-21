@@ -38,15 +38,15 @@
 						break;
 					case ResponseTypes.Error:
 						logger.Error("Error Processing Request", new { request, result });
-						ajaxResult = new AjaxErrorResult(result.Message, result);
+						ajaxResult = new AjaxErrorResult("HEY REDO THIS", result);
 						break;
 					case ResponseTypes.InvalidRequest:
 						logger.Error("Invalid Request", new { request, result });
-						ajaxResult = new AjaxErrorResult(result.Message, result);
+						ajaxResult = new AjaxErrorResult("HEY REDO THIS", result);
 						break;
 					case ResponseTypes.Unauthorized:
 						logger.Error("Unaut horized Request", new { request, result });
-						ajaxResult = new AjaxErrorResult(result.Message, result);
+						ajaxResult = new AjaxErrorResult("HEY REDO THIS", result);
 						break;
 					default:
 						ajaxResult = new AjaxErrorResult("Unknown response type", result);

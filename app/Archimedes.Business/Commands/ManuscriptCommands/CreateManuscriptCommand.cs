@@ -10,8 +10,6 @@
 		public CreateManuscriptCommand(IBusinessServices businessServices)
 			: base(businessServices)
 		{
-			this.ErrorMessage = "Could not create new manuscript";
-			this.SuccessMessage = "Successfully created new manuscript!";
 		}
 
 		/// <summary>

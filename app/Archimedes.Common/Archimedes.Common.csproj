@@ -62,7 +62,7 @@
     <Compile Include="BootConfiguration.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Commands\CommandLocator.cs" />
-    <Compile Include="Commands\Headquarters.cs" />
+    <Compile Include="Commands\CommandExecutor.cs" />
     <Compile Include="Commands\ICommandLocator.cs" />
     <Compile Include="Commands\ResponseTypes.cs" />
     <Compile Include="ErrorCodes\CommonErrors.cs" />

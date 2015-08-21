@@ -1,23 +1,23 @@
 ﻿namespace Archimedes.Common.ServiceLocater
 {
 	using System;
+	using System.Collections.Generic;
 	using System.Linq;
 
+
 	using Ninject;
+	using Ninject.Modules;
 	
 	public class NinjectServiceLocator : IServiceLocator
 	{
 		private readonly IKernel kernel;
 
-		public NinjectServiceLocator(params string[] assemblySearchPatterns)
+		public NinjectServiceLocator(IEnumerable<INinjectModule> modules)
 		{
 			this.kernel = new StandardKernel();
-			if (assemblySearchPatterns.Any())
+			if (modules.Any())
 			{
-				foreach (var pattern in assemblySearchPatterns)
-				{
-					this.kernel.Load(pattern);
-				}
+				this.kernel.Load(modules);
 			}
 			else
 			{

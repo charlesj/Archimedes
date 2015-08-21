@@ -14,7 +14,7 @@
 			this.configuration = configuration;
 			this.WriteIfVerbose("Booting...");
 
-			this.ServiceLocator = new NinjectServiceLocator(configuration.AssemblySearchPatterns.ToArray());
+			this.ServiceLocator = new NinjectServiceLocator(configuration.Modules);
 
 			if (this.configuration.CheckSanity)
 			{

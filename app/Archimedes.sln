@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archimedes.Web", "Archimedes.Web\Archimedes.Web.csproj", "{D585E7F8-A8F7-41CA-BC3F-D38D17383505}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archimedes.Business", "Archimedes.Business\Archimedes.Business.csproj", "{E967CEB4-B8AC-4C36-98C9-720160576E3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archimedes.Business.Tests", "Archimedes.Business.Tests\Archimedes.Business.Tests.csproj", "{1EAEBEBE-A5D5-4FF1-8CB9-15D15AC4F99F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archimedes.Console", "Archimedes.Console\Archimedes.Console.csproj", "{702B8433-11D5-43A7-9079-1B7A9735915C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{1EAEBEBE-A5D5-4FF1-8CB9-15D15AC4F99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EAEBEBE-A5D5-4FF1-8CB9-15D15AC4F99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EAEBEBE-A5D5-4FF1-8CB9-15D15AC4F99F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702B8433-11D5-43A7-9079-1B7A9735915C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702B8433-11D5-43A7-9079-1B7A9735915C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702B8433-11D5-43A7-9079-1B7A9735915C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702B8433-11D5-43A7-9079-1B7A9735915C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

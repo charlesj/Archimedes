@@ -1,8 +1,8 @@
 ﻿namespace Archimedes.Business.Tests
 {
-	using Archimedes.Common;
-	using Archimedes.Common.Tests;
-	using Archimedes.Data.Contracts;
+	using Common;
+	using Common.Tests;
+	using Data.Contracts;
 
 	public class BusinessIntegrationTest<TSut> : BaseIntegrationTest<TSut>
 	{

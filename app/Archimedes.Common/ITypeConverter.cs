@@ -1,7 +1,7 @@
 ﻿namespace Archimedes.Common
 {
 	using System;
-    
+	
 	public interface ITypeConverter
 	{
 		object Convert(object value, Type targetType);

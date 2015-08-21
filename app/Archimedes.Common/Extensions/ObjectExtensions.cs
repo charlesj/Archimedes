@@ -6,7 +6,7 @@
 	using System.Web.UI;
 
 	using Newtonsoft.Json;
-    
+	
 	public static class ObjectExtensions
 	{
 		public static PropertyInfo[] GetProperties(this object obj)
@@ -16,15 +16,15 @@
 
 		public static string ToJson(this object obj, bool formatted = false)
 		{
-            if(formatted)
-            {
-                return JsonConvert.SerializeObject(obj, Formatting.Indented);
-            }
+			if(formatted)
+			{
+				return JsonConvert.SerializeObject(obj, Formatting.Indented);
+			}
 
 			return JsonConvert.SerializeObject(obj);
 		}
 
-	    public static object EvaluateWithDataBinder(this object source, string expression)
+		public static object EvaluateWithDataBinder(this object source, string expression)
 		{
 			try
 			{
