@@ -1,6 +1,6 @@
 ﻿namespace Archimedes.Data.Contracts
 {
-	using Archimedes.Data.Models;
+	using Models;
 
 	public interface IUserSettingsRepository : IRepository<UserSettings>
 	{

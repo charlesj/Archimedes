@@ -1,15 +1,15 @@
 ﻿namespace Archimedes.Data.Tests
 {
-	using Archimedes.Common;
+	using Common;
 
 	using Xunit;
 
 	public class DataBootTests
-    {
-	    [Fact]
-	    public void CanBootWithData()
-	    {
-		    Bootstrapper.Boot(BootConfiguration.DefaultConfiguration);
-	    }
-    }
+	{
+		[Fact]
+		public void CanBootWithData()
+		{
+			Bootstrapper.Boot(BootConfiguration.DefaultConfiguration);
+		}
+	}
 }

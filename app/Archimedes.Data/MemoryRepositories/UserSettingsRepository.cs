@@ -2,8 +2,8 @@
 {
 	using System.Linq;
 
-	using Archimedes.Data.Contracts;
-	using Archimedes.Data.Models;
+	using Contracts;
+	using Models;
 
 	public class UserSettingsRepository : MemoryRepository<UserSettings>, IUserSettingsRepository
 	{

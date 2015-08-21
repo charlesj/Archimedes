@@ -1,7 +1,7 @@
 ﻿namespace Archimedes.Data
 {
-	using Archimedes.Data.Contracts;
-	using Archimedes.Data.MemoryRepositories;
+	using Contracts;
+	using MemoryRepositories;
 
 	using Ninject.Modules;
 

@@ -1,6 +1,6 @@
 ﻿namespace Archimedes.Data
 {
-	using Archimedes.Data.Contracts;
+	using Contracts;
 
 	using Ninject;
 

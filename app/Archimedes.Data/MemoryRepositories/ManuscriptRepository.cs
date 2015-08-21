@@ -2,8 +2,8 @@
 {
 	using System;
 
-	using Archimedes.Data.Contracts;
-	using Archimedes.Data.Models;
+	using Contracts;
+	using Models;
 
 	public class ManuscriptRepository : MemoryRepository<Manuscript>, IManuscriptRepository
 	{
