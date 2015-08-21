@@ -345,6 +345,10 @@
       <Project>{033cc71e-1671-4282-9f22-d809fa16a13f}</Project>
       <Name>Archimedes.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Archimedes.Data\Archimedes.Data.csproj">
+      <Project>{f9855c2f-a6c7-4feb-9bb6-776e43d1da91}</Project>
+      <Name>Archimedes.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

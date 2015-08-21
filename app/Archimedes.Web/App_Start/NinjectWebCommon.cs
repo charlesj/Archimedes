@@ -6,8 +6,10 @@ namespace Archimedes.Web.App_Start
     using System;
     using System.Web;
 
-    using Archimedes.Common;
-    using Archimedes.Common.ServiceLocater;
+    using Common;
+    using Common.ServiceLocater;
+	using Data;
+	using Business;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -47,7 +49,11 @@ namespace Archimedes.Web.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-			Common.Bootstrapper.Boot(BootConfiguration.DefaultConfiguration.AddAssemblySearchPattern("Archimedes*.dll"));
+			Common.Bootstrapper.Boot(
+					BootConfiguration.DefaultConfiguration
+									 .AddNinjectModule(new CommonNinjectModule())
+									 .AddNinjectModule(new DataNinjectModule())
+									 .AddNinjectModule(new BusinessNinjectModule()));
 			var kernel = ((NinjectServiceLocator)Common.Bootstrapper.BootedKernel.ServiceLocator).Kernel;
             try
             {
