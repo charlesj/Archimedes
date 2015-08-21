@@ -55,33 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessNinjectModule.cs" />
-    <Compile Include="BusinessObjects\JournalEntry.cs" />
-    <Compile Include="BusinessObjects\Manuscript.cs" />
-    <Compile Include="BusinessObjects\User.cs" />
     <Compile Include="BusinessServices.cs" />
-    <Compile Include="Commands\AuthorizedRequest.cs" />
     <Compile Include="Commands\BusinessCommand.cs" />
-    <Compile Include="Commands\JournalCommands\AddJournalEntryCommand.cs" />
-    <Compile Include="Commands\JournalCommands\AddJournalEntryRequest.cs" />
-    <Compile Include="Commands\JournalCommands\AddJournalEntryRequestValidator.cs" />
-    <Compile Include="Commands\JournalCommands\DeleteJournalEntryCommand.cs" />
-    <Compile Include="Commands\JournalCommands\GetUserEntriesCommand.cs" />
-    <Compile Include="Commands\JournalCommands\GetUserEntriesRequest.cs" />
-    <Compile Include="Commands\JournalCommands\GetUserEntriesRequestValidator.cs" />
-    <Compile Include="Commands\JournalCommands\SaveJournalEntryChangesCommand.cs" />
-    <Compile Include="Commands\ManuscriptCommands\CreateManuscriptCommand.cs" />
-    <Compile Include="Commands\ManuscriptCommands\CreateManuscriptRequest.cs" />
-    <Compile Include="Commands\ManuscriptCommands\GetAllManuscriptsCommand.cs" />
-    <Compile Include="Commands\SecurityCommands\LoginCommand.cs" />
-    <Compile Include="Commands\SecurityCommands\LoginRequest.cs" />
-    <Compile Include="Commands\SecurityCommands\LoginRequestValidator.cs" />
-    <Compile Include="Contracts\IUserActivityLog.cs" />
     <Compile Include="IBusinessServices.cs" />
-    <Compile Include="Mappings\JournalEntryMappings.cs" />
-    <Compile Include="Mappings\ManuscriptMappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Commands\ManuscriptCommands\GetAllManuscriptsRequest.cs" />
-    <Compile Include="Services\UserActivityLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Archimedes.Common\Archimedes.Common.csproj">
@@ -95,6 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessObjects\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />

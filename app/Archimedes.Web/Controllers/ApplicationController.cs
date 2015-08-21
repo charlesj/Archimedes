@@ -2,22 +2,13 @@
 {
 	using System;
 	using System.Web.Mvc;
-
-	using Archimedes.Business.BusinessObjects;
-	using Archimedes.Common;
-	using Archimedes.Common.Commands;
-	using Archimedes.Common.Logging;
-	using Archimedes.Web.Results;
+	using Common;
+	using Common.Commands;
+	using Common.Logging;
+	using Results;
 
 	public abstract class ApplicationController : Controller
     {
-		public ApplicationController()
-		{
-			this.LoggedInUser = new User { UserId = 1, Username = "charlesj" };
-		}
-
-		public User LoggedInUser { get; private set; }
-
 		protected AjaxResult ProcessRequest<TRequest, TResult>(TRequest request) where TRequest : Request
 		{
 			AjaxResult ajaxResult;
@@ -45,7 +36,7 @@
 						ajaxResult = new AjaxErrorResult("HEY REDO THIS", result);
 						break;
 					case ResponseTypes.Unauthorized:
-						logger.Error("Unaut horized Request", new { request, result });
+						logger.Error("Unauthorized Request", new { request, result });
 						ajaxResult = new AjaxErrorResult("HEY REDO THIS", result);
 						break;
 					default:

@@ -1,9 +1,8 @@
 ﻿namespace Archimedes.Business
 {
-	using Archimedes.Business.Contracts;
-	using Archimedes.Common.Mapping;
-	using Archimedes.Common.Validation;
-	using Archimedes.Data.Contracts;
+	using Common.Mapping;
+	using Common.Validation;
+	using Data.Contracts;
 
 	public interface IBusinessServices
 	{
@@ -12,7 +11,5 @@
 		IValidateThings Validator { get; }
 
 		IDataStorage DataStore { get; }
-
-		IUserActivityLog UserActivityLog { get; }
 	}
 }

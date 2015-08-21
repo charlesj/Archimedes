@@ -1,10 +1,7 @@
 ﻿namespace Archimedes.Web
 {
-	using System.Collections.Specialized;
 	using System.Web.Mvc;
-	using System.Web.Optimization;
 	using System.Web.Routing;
-	using System.Web.Security;
 
 	public class MvcApplication : System.Web.HttpApplication
 	{
@@ -13,7 +10,6 @@
 			AreaRegistration.RegisterAllAreas();
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
-			BundleConfig.RegisterBundles(BundleTable.Bundles);
 		}
 	}
 }
