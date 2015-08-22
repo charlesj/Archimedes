@@ -13,28 +13,31 @@
 		public BootConfiguration()
 		{
 			this.Modules = new List<INinjectModule>();
-			this.ServicesToCheck = new List<Type>
-										{
-											typeof (ISettings),
-											typeof (ILogger),
-											typeof (ITypeConverter),
-											typeof (IMappingService),
-											typeof (IValidateThings)
-										};
-			this.CheckServices = true;
-			this.Verbose = false;
+			this.ServicesToCheck = new List<Type>();
 		}
-
 		public static BootConfiguration DefaultConfiguration
 		{
 			get
 			{
-				return new BootConfiguration();
+				var config = new BootConfiguration
+				{
+					CheckServices = true,
+					Verbose = false
+				};
+
+				config.ServicesToCheck.AddRange(new[] {
+						typeof(ISettings),
+						typeof(ILogger),
+						typeof(ITypeConverter),
+						typeof(IMappingService),
+						typeof(IValidateThings)
+                    });
+				return config;
 			}
 		}
 
-		public List<INinjectModule> Modules { get; }
-		public List<Type> ServicesToCheck { get; }
+		public List<INinjectModule> Modules { get; set; }
+		public List<Type> ServicesToCheck { get; set; }
 
 		public bool CheckServices { get; set; }
 
