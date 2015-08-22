@@ -1,66 +1,50 @@
 ﻿namespace Archimedes.Common.Tests.ValidationTests
 {
-	using System;
+	using System.Linq;
 
 	using Mapping;
+	using ServiceLocater;
 	using Validation;
 
 	using FluentValidation;
 	using Xunit;
 
-	public class ValidateThingsTests
+	public class ValidateThingsTests : BaseIntegrationTest<IValidateThings>
 	{
-		private readonly ValidateThings validatorLocator;
-
 		public ValidateThingsTests()
 		{
-			MappingConfigurationLoader.LoadConfigurations();
-			this.validatorLocator = new ValidateThings(new AutoMapperMappingService());
+			// setup the service locator to know about this binding.
+			var ninjectKernal = ((NinjectServiceLocator)Kernel.ServiceLocator).Kernel;
+			if (!ninjectKernal.GetBindings(typeof(IValidate<Simple>)).Any())
+			{
+				ninjectKernal.Bind<IValidate<Simple>>().To<SimpleValidator>();
+			}
 		}
 
 		[Fact]
 		public void CanValidate()
 		{
 			var simple = new Simple { Name = "Fozzy", EmailAddress = "fozzy@wokka.com" };
-			this.validatorLocator.CheckValidation(simple);
+			var result = this.SystemUnderTest.CheckValidation(simple);
+			Assert.True(result.IsValid);
 		}
 
 		[Fact]
-		public void ThrowsInvalidOperationExceptionWhenItCannotLocateAValidator()
+		public void CanInvalidate()
 		{
-			Assert.Throws<InvalidOperationException>(() => this.validatorLocator.CheckValidation("wokka wokka"));
+			var simple = new Simple { Name = "Fozzy", EmailAddress = "fozzywokka.com" };
+			var result = this.SystemUnderTest.CheckValidation(simple);
+			Assert.False(result.IsValid);
 		}
 
-		[Fact]
-		public void ThrowsWhenGivenAValidatorWithAConstructorWithMultipleArguments()
-		{
-			var brick = new Brick();
-			Assert.Throws<InvalidOperationException>(() => this.validatorLocator.CheckValidation(brick));
-		}
-
-		private class Simple
+		public class Simple
 		{
 			public string Name { get; set; }
 
 			public string EmailAddress { get; set; }
 		}
 
-		private class Brick
-		{
-		}
-
-		private class BrickValidator : BaseValidator<Brick>
-		{
-			private readonly string name;
-
-			public BrickValidator(IMappingService mapper, string name)
-				: base(mapper)
-			{
-				this.name = name;
-			}
-		}
-
-		private class SimpleValidator : BaseValidator<Simple>
+		public class SimpleValidator : BaseValidator<Simple>
 		{
 			public SimpleValidator(IMappingService mapper)
 				: base(mapper)
