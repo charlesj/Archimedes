@@ -17,13 +17,13 @@
 	{
 		public AddCommandTests()
 		{
-			Bootstrapper.Boot(BootConfiguration.DefaultConfiguration);
+			Kernel.Boot(BootConfiguration.DefaultConfiguration);
 		}
 
 		[Fact]
 		public void CanExecuteCommand()
 		{
-			var command = Bootstrapper.BootedKernel.ServiceLocator.GetService<AddCommand>();
+			var command = Kernel.ServiceLocator.GetService<AddCommand>();
 			var request = new AddRequest { FirstNumber = 1, SecondNumber = 1 };
 			var response = command.Execute(request);
 			Assert.True(response.Result == 2);
@@ -40,7 +40,7 @@
 		[Fact]
 		public void CanUseHeadquarters()
 		{
-			var headquarters = Bootstrapper.BootedKernel.ServiceLocator.GetService<CommandExecutor>();
+			var headquarters = Kernel.ServiceLocator.GetService<CommandExecutor>();
 			var response = headquarters.Execute<AddRequest, int>(new AddRequest { FirstNumber = 2, SecondNumber = 2 });
 			Assert.True(response.Result == 4);
 		}
@@ -48,7 +48,7 @@
 		[Fact]
 		public void CanReadElapsed()
 		{
-			var headquarters = Bootstrapper.BootedKernel.ServiceLocator.GetService<CommandExecutor>();
+			var headquarters = Kernel.ServiceLocator.GetService<CommandExecutor>();
 			var response = headquarters.Execute<AddRequest, int>(new AddRequest { FirstNumber = 2, SecondNumber = 2 });
 			Console.Write("Execution Time: {0}ms", response.ExecutionTime);
 		}
@@ -56,7 +56,7 @@
 		[Fact]
 		public void InvalidRequestReturnsInvalidRequestTrue()
 		{
-			var command = Bootstrapper.BootedKernel.ServiceLocator.GetService<AddCommand>();
+			var command = Kernel.ServiceLocator.GetService<AddCommand>();
 			var request = new AddRequest { FirstNumber = -1, SecondNumber = 1 }; // invalid because of the -1
 			var response = command.Execute(request);
 			Assert.Equal(response.ResultType, ResponseTypes.InvalidRequest);
@@ -65,7 +65,7 @@
 		[Fact]
 		public void InvalidRequestReturnsValidationErrors()
 		{
-			var command = Bootstrapper.BootedKernel.ServiceLocator.GetService<AddCommand>();
+			var command = Kernel.ServiceLocator.GetService<AddCommand>();
 			var request = new AddRequest { FirstNumber = -1, SecondNumber = 1 }; // invalid because of the -1
 			var response = command.Execute(request);
 			Assert.True(response.ValidationErrors.Any());
@@ -74,7 +74,7 @@
 		[Fact]
 		public void UnauthorizedRequestReturnsUnauthorizedResponse()
 		{
-			var command = Bootstrapper.BootedKernel.ServiceLocator.GetService<AddCommand>();
+			var command = Kernel.ServiceLocator.GetService<AddCommand>();
 			var request = new AddRequest { FirstNumber = 1, SecondNumber = 1 };
 			command.AuthorizeOveride = false;
 			var response = command.Execute(request);

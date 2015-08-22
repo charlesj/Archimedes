@@ -7,7 +7,7 @@
 		[Fact]
 		public void CanBoot()
 		{
-			Bootstrapper.Boot(BootConfiguration.DefaultConfiguration);
+			Kernel.Boot(BootConfiguration.DefaultConfiguration);
 		}
 	}
 }

@@ -1,7 +1,11 @@
 ﻿namespace Archimedes.Common
 {
 	using System.Collections.Generic;
-	
+	using System;
+	using Logging;
+	using Mapping;
+	using Settings;
+	using Validation;
 	using Ninject.Modules;
 
 	public class BootConfiguration
@@ -9,7 +13,15 @@
 		public BootConfiguration()
 		{
 			this.Modules = new List<INinjectModule>();
-			this.CheckSanity = true;
+			this.ServicesToCheck = new List<Type>
+										{
+											typeof (ISettings),
+											typeof (ILogger),
+											typeof (ITypeConverter),
+											typeof (IMappingService),
+											typeof (IValidateThings)
+										};
+			this.CheckServices = true;
 			this.Verbose = false;
 		}
 
@@ -21,15 +33,24 @@
 			}
 		}
 
-		public List<INinjectModule> Modules { get; set; }
+		public List<INinjectModule> Modules { get; }
+		public List<Type> ServicesToCheck { get; }
 
-		public bool CheckSanity { get; set; }
+		public bool CheckServices { get; set; }
 
 		public bool Verbose { get; set; }
 
-		public BootConfiguration SkipSanityCheck()
+		public void AddServiceToCheck(Type serviceType)
 		{
-			this.CheckSanity = false;
+			if (!this.ServicesToCheck.Contains(serviceType))
+			{
+				this.ServicesToCheck.Add(serviceType);
+			}
+		}
+
+		public BootConfiguration SkipServicesCheck()
+		{
+			this.CheckServices = false;
 			return this;
 		}
 

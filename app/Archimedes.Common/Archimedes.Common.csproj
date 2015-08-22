@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootConfiguration.cs" />
-    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Commands\CommandLocator.cs" />
     <Compile Include="Commands\CommandExecutor.cs" />
     <Compile Include="Commands\CommandProcessor.cs" />
@@ -76,7 +75,6 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtentions.cs" />
     <Compile Include="Extensions\TimeSpanExtensions.cs" />
-    <Compile Include="IKernel.cs" />
     <Compile Include="ITypeConverter.cs" />
     <Compile Include="Kernel.cs" />
     <Compile Include="Logging\ILogger.cs" />

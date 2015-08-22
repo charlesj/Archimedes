@@ -8,7 +8,7 @@
 	{
 		public BusinessIntegrationTest()
 		{
-			this.Data = Bootstrapper.BootedKernel.ServiceLocator.GetService<IDataStorage>();
+			this.Data = Kernel.ServiceLocator.GetService<IDataStorage>();
 		}
 		
 		protected IDataStorage Data { get; private set; }

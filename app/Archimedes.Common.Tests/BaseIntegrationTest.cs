@@ -4,8 +4,8 @@
 	{
 		public BaseIntegrationTest()
 		{
-			Bootstrapper.Boot(BootConfiguration.DefaultConfiguration);
-			this.SystemUnderTest = Bootstrapper.BootedKernel.ServiceLocator.GetService<TSut>();
+			Kernel.Boot(BootConfiguration.DefaultConfiguration);
+			this.SystemUnderTest = Kernel.ServiceLocator.GetService<TSut>();
 		}
 
 		public TSut SystemUnderTest { get; set; }

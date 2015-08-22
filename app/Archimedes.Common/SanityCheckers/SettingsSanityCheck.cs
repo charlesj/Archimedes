@@ -8,7 +8,7 @@
 
 	public class SettingsSanityCheck : ICheckKernelSanity
 	{
-		public void Check(IKernel kernel)
+		public void Check(Kernel kernel)
 		{
 			var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 			var settingsInterfaces = new List<Type>();
@@ -19,11 +19,10 @@
 
 			foreach (var settingsInterface in settingsInterfaces)
 			{
-				var settings = (ISettings)kernel.ServiceLocator.GetService(settingsInterface);
+				var settings = (ISettings)kernel.ServiceLocatorInstance.GetService(settingsInterface);
 				settings.CheckAllSettingForValues();
 			}
-
-			kernel.WriteIfVerbose("Settings implementations seem to be sane.");
+			// kernel.WriteIfVerbose("Settings implementations seem to be sane.");
 		}
 	}
 }

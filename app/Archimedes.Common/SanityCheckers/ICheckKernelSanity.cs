@@ -2,6 +2,6 @@
 {
 	public interface ICheckKernelSanity
 	{
-		void Check(IKernel kernel);
+		void Check(Kernel kernel);
 	}
 }

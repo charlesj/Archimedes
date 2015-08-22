@@ -12,8 +12,8 @@
 		protected AjaxResult ProcessRequest<TRequest, TResult>(TRequest request) where TRequest : Request
 		{
 			AjaxResult ajaxResult;
-			var commandLocator = Bootstrapper.BootedKernel.ServiceLocator.GetService<ICommandLocator>();
-			var logger = Bootstrapper.BootedKernel.ServiceLocator.GetService<ILogger>();
+			var commandLocator = Kernel.ServiceLocator.GetService<ICommandLocator>();
+			var logger = Kernel.ServiceLocator.GetService<ILogger>();
 			BaseCommand<TRequest, TResult> command = null;
 			
 			try

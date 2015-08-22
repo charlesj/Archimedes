@@ -49,12 +49,12 @@ namespace Archimedes.Web.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-			Common.Bootstrapper.Boot(
+			Kernel.Boot(
 					BootConfiguration.DefaultConfiguration
 									 .AddNinjectModule(new CommonNinjectModule())
 									 .AddNinjectModule(new DataNinjectModule())
 									 .AddNinjectModule(new BusinessNinjectModule()));
-			var kernel = ((NinjectServiceLocator)Common.Bootstrapper.BootedKernel.ServiceLocator).Kernel;
+			var kernel = ((NinjectServiceLocator)Kernel.ServiceLocator).Kernel;
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);

@@ -1,44 +1,65 @@
 ﻿namespace Archimedes.Common
 {
 	using System;
-
+	using System.Diagnostics;
+	using Mapping;
 	using ServiceLocater;
 
-	// TODO: Implement Singleton Correctly.
-	public class Kernel : IKernel
+	public class Kernel
 	{
-		private readonly BootConfiguration configuration;
+		private static readonly object bootLock = new object();
+		private static Kernel bootedKernel;
 
-		public Kernel(BootConfiguration configuration)
+		private Kernel()
 		{
-			this.configuration = configuration;
-			this.WriteIfVerbose("Booting...");
+		}
 
-			this.ServiceLocator = new NinjectServiceLocator(configuration.Modules);
-
-			if (this.configuration.CheckSanity)
+		public static void Boot(BootConfiguration configuration)
+		{
+			lock (bootLock)
 			{
-				this.CheckSanity();
+				if (bootedKernel == null)
+				{
+					bootedKernel = new Kernel();
+					bootedKernel.Configuration = configuration;
+					bootedKernel.WriteIfVerbose("Booting...");
+					bootedKernel.ServiceLocatorInstance = new NinjectServiceLocator(configuration.Modules);
+					bootedKernel.WriteIfVerbose("Loaded Ninject Modules");
+					MappingConfigurationLoader.LoadConfigurations();
+					bootedKernel.WriteIfVerbose("Configured Object Mappings");
+					if (configuration.CheckServices)
+					{
+						bootedKernel.CheckServices();
+						bootedKernel.WriteIfVerbose("Services Checked out");
+					}
+
+					bootedKernel.WriteIfVerbose("Boot Complete.");
+				}
 			}
-			
-			this.WriteIfVerbose("Boot Complete.");
 		}
 
-		public IServiceLocator ServiceLocator { get; private set; }
+		public static IServiceLocator ServiceLocator => bootedKernel.ServiceLocatorInstance;
 
-		public void CheckSanity()
-		{
-			this.WriteIfVerbose("Checking Sanity");
-			//this.CheckSanityOfSettingsObjects();
-			this.WriteIfVerbose("Hey it's sane!");
-		}
+		public IServiceLocator ServiceLocatorInstance { get; private set; }
+		public BootConfiguration Configuration { get; private set; }
 
-		public void WriteIfVerbose(string format, params object[] args)
+		private void WriteIfVerbose(string format, params object[] args)
 		{
-			if (this.configuration.Verbose)
+			if (this.Configuration.Verbose)
 			{
 				Console.WriteLine(format, args);
 			}
+		}
+
+		private void CheckServices()
+		{
+			this.Configuration.ServicesToCheck.ForEach(service =>
+			{
+				this.WriteIfVerbose("Checking {0}", service);
+				var serviceInstance = ServiceLocator.GetService(service);
+				Debug.Assert(serviceInstance != null);
+				this.WriteIfVerbose("{0} service available as {1}", service, serviceInstance.GetType());
+			});
 		}
 	}
 }

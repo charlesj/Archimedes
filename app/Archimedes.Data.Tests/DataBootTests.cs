@@ -9,7 +9,7 @@
 		[Fact]
 		public void CanBootWithData()
 		{
-			Bootstrapper.Boot(BootConfiguration.DefaultConfiguration);
+			Kernel.Boot(BootConfiguration.DefaultConfiguration);
 		}
 	}
 }
