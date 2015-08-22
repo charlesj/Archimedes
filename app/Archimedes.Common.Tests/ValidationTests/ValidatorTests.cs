@@ -13,6 +13,11 @@
 
 	public class ValidatorTests
 	{
+		public ValidatorTests()
+		{
+			Kernel.Boot(BootConfiguration.DefaultConfiguration);
+		}
+
 		[Fact]
 		public void CanValidateSimple()
 		{

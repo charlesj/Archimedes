@@ -5,19 +5,27 @@
 
 	using Commands;
 	using Mapping;
+	using ServiceLocater;
 	using Validation;
 
 	using FluentValidation;
-
-	using Ninject.Modules;
-
 	using Xunit;
 
 	public class AddCommandTests
 	{
 		public AddCommandTests()
 		{
+			// Ensure that we're booted
 			Kernel.Boot(BootConfiguration.DefaultConfiguration);
+			var ninjectKernal = ((NinjectServiceLocator)Kernel.ServiceLocator).Kernel;
+			if (!ninjectKernal.GetBindings(typeof(BaseCommand<AddRequest, int>)).Any())
+			{
+				ninjectKernal.Bind<BaseCommand<AddRequest, int>>().To<AddCommand>();
+			}
+			if (!ninjectKernal.GetBindings(typeof (IValidate<AddRequest>)).Any())
+			{
+				ninjectKernal.Bind<IValidate<AddRequest>>().To<AddRequestValidator>();
+			}
 		}
 
 		[Fact]
@@ -81,15 +89,6 @@
 			Assert.Equal(response.ResultType, ResponseTypes.Unauthorized);
 		}
 	}
-
-	public class AddCommandNinjectModule : NinjectModule
-	{
-		public override void Load()
-		{
-			this.Bind<BaseCommand<AddRequest, int>>().To<AddCommand>();
-		}
-	}
-
 	public class AddCommand : BaseCommand<AddRequest, int>
 	{
 		public bool AuthorizeOveride { get; set; }
