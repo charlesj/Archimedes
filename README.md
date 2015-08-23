@@ -7,7 +7,7 @@ start, but doesn't actually do anything.  The console project runs a null
 command.  All tests pass locally.
 
 Tests that require app.config files do not run on appveyor.  I'm looking into
-this.
+this. See https://github.com/charlesj/AppVeyorXunitIssue
 
 Requires C# 6.
 
