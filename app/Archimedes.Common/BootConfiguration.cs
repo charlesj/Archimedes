@@ -15,6 +15,7 @@
 			this.Modules = new List<INinjectModule>();
 			this.ServicesToCheck = new List<Type>();
 		}
+
 		public static BootConfiguration DefaultConfiguration
 		{
 			get
@@ -22,7 +23,8 @@
 				var config = new BootConfiguration
 				{
 					CheckServices = true,
-					Verbose = false
+					Verbose = false,
+					VerboseOut = Console.WriteLine
 				};
 
 				config.ServicesToCheck.AddRange(new[] {
@@ -32,41 +34,60 @@
 						typeof(IMappingService),
 						typeof(IValidateThings)
                     });
+
 				return config;
 			}
 		}
 
 		public List<INinjectModule> Modules { get; set; }
 		public List<Type> ServicesToCheck { get; set; }
-
 		public bool CheckServices { get; set; }
-
 		public bool Verbose { get; set; }
+		public Action<string, object[]> VerboseOut { get; set; }
 
-		public void AddServiceToCheck(Type serviceType)
+		public void Out(string format, params object[] args)
 		{
-			if (!this.ServicesToCheck.Contains(serviceType))
+			if (this.Verbose)
 			{
-				this.ServicesToCheck.Add(serviceType);
+				this.VerboseOut(format, args);
 			}
 		}
+	}
 
-		public BootConfiguration SkipServicesCheck()
+	public static class BootConfigurationFluent
+	{
+		public static BootConfiguration SkipServicesCheck(this BootConfiguration configuration)
 		{
-			this.CheckServices = false;
-			return this;
+			configuration.CheckServices = false;
+			return configuration;
 		}
 
-		public BootConfiguration AddNinjectModule(INinjectModule module)
+		public static BootConfiguration AddServiceToCheck(this BootConfiguration configuration, Type serviceType)
 		{
-			this.Modules.Add(module);
-			return this;
+			if (!configuration.ServicesToCheck.Contains(serviceType))
+			{
+				configuration.ServicesToCheck.Add(serviceType);
+			}
+
+			return configuration;
 		}
 
-		public BootConfiguration BeVerbose()
+		public static BootConfiguration AddNinjectModule(this BootConfiguration configuration, INinjectModule module)
 		{
-			this.Verbose = true;
-			return this;
+			configuration.Modules.Add(module);
+			return configuration;
+		}
+
+		public static BootConfiguration BeVerbose(this BootConfiguration configuration)
+		{
+			configuration.Verbose = true;
+			return configuration;
+		}
+
+		public static BootConfiguration VerboseWith(this BootConfiguration configuration, Action<string, object[]> output)
+		{
+			configuration.VerboseOut = output;
+			return configuration;
 		}
 	}
 }
