@@ -1,4 +1,6 @@
-﻿namespace Archimedes.Common.Settings
+﻿using System;
+
+namespace Archimedes.Common.Settings
 {
 	using System.Configuration;
 
@@ -40,6 +42,7 @@
 			if (string.IsNullOrEmpty(value))
 			{
 				string message = string.Format("Missing Settings Value: {0}", key);
+				throw new Exception(message);
 				throw new ErrorCodeException(CommonErrors.SettingsValueNotPresentInConfig, new { key });
 			}
 
