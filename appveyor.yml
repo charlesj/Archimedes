@@ -1,2 +1,4 @@
-before_build:
-  - nuget restore app\Archimedes.sln
+version: 1.0.{build}
+os: Visual Studio 2015
+build:
+  verbosity: minimal

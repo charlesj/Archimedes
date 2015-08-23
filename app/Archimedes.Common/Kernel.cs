@@ -36,7 +36,10 @@
 			}
 		}
 
-		public static IServiceLocator ServiceLocator => bootedKernel.ServiceLocatorInstance;
+		public static IServiceLocator ServiceLocator
+		{
+			get { return bootedKernel.ServiceLocatorInstance; }
+		}
 
 		public IServiceLocator ServiceLocatorInstance { get; private set; }
 		public BootConfiguration Configuration { get; private set; }
