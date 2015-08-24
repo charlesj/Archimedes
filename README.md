@@ -4,10 +4,7 @@
 
 *Current Status*: Updating libraries and refactoring. The web project will
 start, but doesn't actually do anything.  The console project runs a null
-command.  All tests pass locally.
-
-Tests that require app.config files do not run on appveyor.  I'm looking into
-this. See https://github.com/charlesj/AppVeyorXunitIssue
+command.  
 
 Requires C# 6.
 
@@ -20,3 +17,5 @@ in a way that can be used wherever I need them to be.
 consistent manner
 - Is there a better object mapper than auto mapper?
 - What if we don't use entity framework?
+- What if we use Postgres?
+- http://sqitch.org/ looks interesting...
