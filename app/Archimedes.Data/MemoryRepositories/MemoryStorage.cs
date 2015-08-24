@@ -2,7 +2,7 @@
 {
 	using System.Collections.Generic;
 
-	using Archimedes.Data.Models;
+	using Models;
 
 	public class MemoryStorage<TModel> : Dictionary<int, TModel> where TModel : IModel
 	{
