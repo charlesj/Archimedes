@@ -2,13 +2,13 @@
 {
 	using System.Linq;
 
-	using Archimedes.Common.Tests;
-	using Archimedes.Data.MemoryRepositories;
-	using Archimedes.Data.Models;
+	using Common.Tests;
+	using Contracts;
+	using Models;
 
 	using Xunit;
 
-	public class ManuscriptRepositoryTests : BaseIntegrationTest<ManuscriptRepository>
+	public class RulesRepositoryTests : BaseIntegrationTest<IRuleRepository>
 	{
 		[Fact]
 		public void RepositoryCanGetAll()
@@ -20,8 +20,8 @@
 		public void RepositoryCanInsert()
 		{
 			var currentCount = this.SystemUnderTest.GetAll().Count();
-			var manuscript = new Manuscript();
-			this.SystemUnderTest.Insert(manuscript);
+			var rule = new Rule();
+			this.SystemUnderTest.Insert(rule);
 			var newCount = this.SystemUnderTest.GetAll().Count();
 			Assert.True(newCount == currentCount + 1);
 		}
@@ -29,21 +29,21 @@
 		[Fact]
 		public void RepositoryCanUpdate()
 		{
-			var manuscript = new Manuscript();
-			this.SystemUnderTest.Insert(manuscript);
-			var newMan = new Manuscript { Id = manuscript.Id, Title = "New Title" };
+			var rule = new Rule();
+			this.SystemUnderTest.Insert(rule);
+			var newMan = new Rule { Id = rule.Id, Title = "New Title" };
 			this.SystemUnderTest.Update(newMan);
-			Assert.True(this.SystemUnderTest.Get(manuscript.Id).Title == "New Title");
+			Assert.True(this.SystemUnderTest.Get(rule.Id).Title == "New Title");
 		}
 
 		[Fact]
 		public void RepositoryCanDelete()
 		{
-			var manuscript = new Manuscript();
-			manuscript = this.SystemUnderTest.Insert(manuscript);
+			var rule = new Rule();
+			rule = this.SystemUnderTest.Insert(rule);
 			var currentCount = this.SystemUnderTest.GetAll().Count();
 			
-			this.SystemUnderTest.Delete(manuscript.Id);
+			this.SystemUnderTest.Delete(rule.Id);
 			var newCount = this.SystemUnderTest.GetAll().Count();
 			Assert.True(newCount == currentCount - 1);
 		}
