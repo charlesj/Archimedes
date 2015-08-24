@@ -42,26 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IJournalEntryRepository.cs" />
-    <Compile Include="Contracts\IManuscriptRepository.cs" />
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IDataStorage.cs" />
-    <Compile Include="Contracts\IUserActivityRepository.cs" />
-    <Compile Include="Contracts\IUserRepository.cs" />
-    <Compile Include="Contracts\IUserSettingsRepository.cs" />
+    <Compile Include="Contracts\IRuleRepository.cs" />
     <Compile Include="DataNinjectModule.cs" />
-    <Compile Include="MemoryRepositories\JournalEntryRepository.cs" />
-    <Compile Include="MemoryRepositories\ManuscriptRepository.cs" />
-    <Compile Include="MemoryRepositories\UserActivityRepository.cs" />
-    <Compile Include="MemoryRepositories\UserRepository.cs" />
-    <Compile Include="MemoryRepositories\UserSettingsRepository.cs" />
+    <Compile Include="MemoryRepositories\RuleRepository.cs" />
     <Compile Include="Models\IModel.cs" />
-    <Compile Include="Models\JournalEntry.cs" />
-    <Compile Include="Models\Manuscript.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserActivity.cs" />
-    <Compile Include="Models\UserSettings.cs" />
+    <Compile Include="Models\Rule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MemoryRepositories\MemoryRepository.cs" />
     <Compile Include="MemoryRepositories\MemoryStorage.cs" />
