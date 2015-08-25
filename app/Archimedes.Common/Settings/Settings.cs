@@ -39,8 +39,6 @@
 			var value = ConfigurationManager.AppSettings[key];
 			if (string.IsNullOrEmpty(value))
 			{
-				////string message = string.Format("Missing Settings Value: {0}", key);
-				////throw new Exception(message);
 				throw new ErrorCodeException(CommonErrors.SettingsValueNotPresentInConfig, new { key });
 			}
 

@@ -5,9 +5,9 @@
 
 		self.manuscripts = ko.observableArray([]);
 
-		dataService.request("/Manuscripts/GetAll", "GET", {}, function (data) {
-			self.manuscripts(data.Result);
-		});
+		//dataService.request("/Manuscripts/GetAll", "GET", {}, function (data) {
+		//	self.manuscripts(data.Result);
+		//});
 
 		self.createManuscript = function() {
 			dialog.show(new create());

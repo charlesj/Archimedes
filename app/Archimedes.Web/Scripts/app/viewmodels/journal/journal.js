@@ -6,9 +6,9 @@
 
 		self.entries = ko.observableArray([]);
 
-		dataService.request("/Journal/Entries", "GET", {}, function (data) {
-			self.entries(data.Result);
-		});
+		//dataService.request("/Journal/Entries", "GET", {}, function (data) {
+		//	self.entries(data.Result);
+		//});
 	};
 
 	return ctor;
