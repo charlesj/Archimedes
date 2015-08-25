@@ -56,7 +56,9 @@
   <ItemGroup>
     <Compile Include="BusinessNinjectModule.cs" />
     <Compile Include="BusinessServices.cs" />
+    <Compile Include="Commands\AddRuleCommand.cs" />
     <Compile Include="Commands\BusinessCommand.cs" />
+    <Compile Include="Commands\GetRulesCommand.cs" />
     <Compile Include="IBusinessServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
