@@ -40,10 +40,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -68,28 +64,28 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -108,15 +104,8 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
-    </Reference>
-    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +114,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RulesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -132,189 +122,10 @@
     <Compile Include="Results\AjaxErrorResult.cs" />
     <Compile Include="Results\AjaxResult.cs" />
     <Compile Include="Results\AjaxSuccessfulResult.cs" />
-    <Compile Include="Services\AuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\app\site.css">
-      <DependentUpon>site.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\app\site.min.css">
-      <DependentUpon>site.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\bootstrap.css">
-      <DependentUpon>bootstrap.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\bootstrap.min.css">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\theme\bootstrap.css">
-      <DependentUpon>bootstrap.less</DependentUpon>
-    </Content>
-    <Content Include="Content\css\theme\bootstrap.min.css">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
-    <Content Include="Content\durandal.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\images\icon.png" />
-    <Content Include="Content\images\ios-startup-image-landscape.png" />
-    <Content Include="Content\images\ios-startup-image-portrait.png" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\app\components\editor\editor.js" />
-    <Content Include="Scripts\app\components\editor\editorTemplate.html" />
-    <Content Include="Scripts\app\dataService.js" />
-    <Content Include="Scripts\app\components\componentRegistry.js" />
-    <Content Include="Scripts\app\securityService.js" />
-    <Content Include="Scripts\app\viewmodels\createManuscript.js" />
-    <Content Include="Scripts\app\viewmodels\journal\journal.js" />
-    <Content Include="Scripts\app\viewmodels\settings.js" />
-    <Content Include="Scripts\app\views\createManuscript.html" />
-    <Content Include="Scripts\app\views\journal\journal.html" />
-    <Content Include="Scripts\app\views\settings.html" />
-    <Content Include="Scripts\durandal\transitions\entrance.js" />
-    <Content Include="Scripts\knockout-3.2.0.debug.js" />
-    <Content Include="Scripts\knockout-3.2.0.js" />
-    <Content Include="Scripts\pace.js" />
-    <Content Include="Scripts\r.js" />
-    <Content Include="Scripts\require.js" />
-    <Content Include="Scripts\screenfull.js" />
-    <Content Include="weyland-config.js" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Content\css\.csscomb.json" />
-    <Content Include="Content\css\.csslintrc" />
-    <Content Include="Content\css\alerts.less" />
-    <Content Include="Content\css\badges.less" />
-    <Content Include="Content\css\bootstrap.less" />
-    <Content Include="Content\css\breadcrumbs.less" />
-    <Content Include="Content\css\button-groups.less" />
-    <Content Include="Content\css\buttons.less" />
-    <Content Include="Content\css\carousel.less" />
-    <Content Include="Content\css\close.less" />
-    <Content Include="Content\css\code.less" />
-    <Content Include="Content\css\component-animations.less" />
-    <Content Include="Content\css\dropdowns.less" />
-    <Content Include="Content\css\forms.less" />
-    <Content Include="Content\css\glyphicons.less" />
-    <Content Include="Content\css\grid.less" />
-    <Content Include="Content\css\input-groups.less" />
-    <Content Include="Content\css\jumbotron.less" />
-    <Content Include="Content\css\labels.less" />
-    <Content Include="Content\css\list-group.less" />
-    <Content Include="Content\css\media.less" />
-    <Content Include="Content\css\mixins.less" />
-    <Content Include="Content\css\mixins\alerts.less" />
-    <Content Include="Content\css\mixins\background-variant.less" />
-    <Content Include="Content\css\mixins\border-radius.less" />
-    <Content Include="Content\css\mixins\buttons.less" />
-    <Content Include="Content\css\mixins\center-block.less" />
-    <Content Include="Content\css\mixins\clearfix.less" />
-    <Content Include="Content\css\mixins\forms.less" />
-    <Content Include="Content\css\mixins\gradients.less" />
-    <Content Include="Content\css\mixins\grid-framework.less" />
-    <Content Include="Content\css\mixins\grid.less" />
-    <Content Include="Content\css\mixins\hide-text.less" />
-    <Content Include="Content\css\mixins\image.less" />
-    <Content Include="Content\css\mixins\labels.less" />
-    <Content Include="Content\css\mixins\list-group.less" />
-    <Content Include="Content\css\mixins\nav-divider.less" />
-    <Content Include="Content\css\mixins\nav-vertical-align.less" />
-    <Content Include="Content\css\mixins\opacity.less" />
-    <Content Include="Content\css\mixins\pagination.less" />
-    <Content Include="Content\css\mixins\panels.less" />
-    <Content Include="Content\css\mixins\progress-bar.less" />
-    <Content Include="Content\css\mixins\reset-filter.less" />
-    <Content Include="Content\css\mixins\resize.less" />
-    <Content Include="Content\css\mixins\responsive-visibility.less" />
-    <Content Include="Content\css\mixins\size.less" />
-    <Content Include="Content\css\mixins\tab-focus.less" />
-    <Content Include="Content\css\mixins\table-row.less" />
-    <Content Include="Content\css\mixins\text-emphasis.less" />
-    <Content Include="Content\css\mixins\text-overflow.less" />
-    <Content Include="Content\css\mixins\vendor-prefixes.less" />
-    <Content Include="Content\css\modals.less" />
-    <Content Include="Content\css\navbar.less" />
-    <Content Include="Content\css\navs.less" />
-    <Content Include="Content\css\normalize.less" />
-    <Content Include="Content\css\pager.less" />
-    <Content Include="Content\css\pagination.less" />
-    <Content Include="Content\css\panels.less" />
-    <Content Include="Content\css\popovers.less" />
-    <Content Include="Content\css\print.less" />
-    <Content Include="Content\css\progress-bars.less" />
-    <Content Include="Content\css\responsive-embed.less" />
-    <Content Include="Content\css\responsive-utilities.less" />
-    <Content Include="Content\css\scaffolding.less" />
-    <Content Include="Content\css\tables.less" />
-    <Content Include="Content\css\theme.less" />
-    <Content Include="Content\css\thumbnails.less" />
-    <Content Include="Content\css\tooltip.less" />
-    <Content Include="Content\css\type.less" />
-    <Content Include="Content\css\utilities.less" />
-    <Content Include="Content\css\variables.less" />
-    <Content Include="Content\css\wells.less" />
-    <Content Include="Content\css\bootstrap.css.map">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\theme\bootswatch.less" />
-    <Content Include="Content\css\theme\variables.less" />
-    <Content Include="Content\css\theme\bootstrap.less" />
-    <Content Include="Content\css\theme\bootstrap.css.map">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
-    <Content Include="Content\css\app\site.less" />
-    <Content Include="Content\css\app\site.css.map">
-      <DependentUpon>site.css</DependentUpon>
-    </Content>
-    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="Scripts\almond-custom.js" />
-    <Content Include="Scripts\app\main.js" />
-    <Content Include="Scripts\app\viewmodels\flickr.js" />
-    <Content Include="Scripts\app\viewmodels\shell.js" />
-    <Content Include="Scripts\app\viewmodels\home.js" />
-    <Content Include="Scripts\app\views\detail.html" />
-    <Content Include="Scripts\app\views\flickr.html" />
-    <Content Include="Scripts\app\views\shell.html" />
-    <Content Include="Scripts\app\views\home.html" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\durandal\activator.js" />
-    <Content Include="Scripts\durandal\app.js" />
-    <Content Include="Scripts\durandal\binder.js" />
-    <Content Include="Scripts\durandal\composition.js" />
-    <Content Include="Scripts\durandal\events.js" />
-    <Content Include="Scripts\durandal\plugins\dialog.js" />
-    <Content Include="Scripts\durandal\plugins\history.js" />
-    <Content Include="Scripts\durandal\plugins\http.js" />
-    <Content Include="Scripts\durandal\plugins\observable.js" />
-    <Content Include="Scripts\durandal\plugins\router.js" />
-    <Content Include="Scripts\durandal\plugins\serializer.js" />
-    <Content Include="Scripts\durandal\plugins\widget.js" />
-    <Content Include="Scripts\durandal\system.js" />
-    <Content Include="Scripts\durandal\viewEngine.js" />
-    <Content Include="Scripts\durandal\viewLocator.js" />
-    <Content Include="Scripts\jquery-2.1.1.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\text.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -327,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -344,6 +156,15 @@
       <Project>{f9855c2f-a6c7-4feb-9bb6-776e43d1da91}</Project>
       <Name>Archimedes.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Rules\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

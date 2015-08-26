@@ -16,7 +16,7 @@
 			this.Bind<IBusinessServices>().To<BusinessServices>();
 
 			this.RegisterCommand<AddRuleRequest, Rule, AddRuleCommand, AddRuleRequestValidator>();
-			this.RegisterCommand<GetRulesRequest, List<Rule>, GetRulesCommand, GetRulesRequestValidator>();
+			this.RegisterCommand<GetRulesRequest, GetRulesResponse, GetRulesCommand, GetRulesRequestValidator>();
 		}
 
 		private void RegisterCommand<TRequest, TResult, TCommand, TRequestValidator>() 

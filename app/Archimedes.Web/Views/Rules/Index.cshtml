@@ -1,0 +1,26 @@
+﻿@model Archimedes.Business.Commands.GetRulesResponse
+
+@{
+	ViewBag.Title = "Rules";
+}
+
+<h2>Rules</h2>
+<table>
+	<thead>
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var rule in @Model.FoundRules)
+	{
+		<tr>
+			<td>@rule.Id</td>
+			<td>@rule.Title</td>
+		</tr>
+	}
+	</tbody>
+</table>
+
+<p>Found @Model.FoundRules.Count rules.</p>
