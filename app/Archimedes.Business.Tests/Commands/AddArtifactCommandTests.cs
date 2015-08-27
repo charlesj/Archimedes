@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace Archimedes.Business.Tests.Commands
 {
@@ -19,14 +20,27 @@ namespace Archimedes.Business.Tests.Commands
 		{
 			var request = new AddArtifactRequest
 			{
-				Motivation = "Test test test",
-				Source = "Fozzy",
-				Status = "Suggested",
-				Title = "This test rule should not be persisted"
+				Title = "This test rule should not be persisted",
+				Description = "asdf",
+				Link = "asdf"
 			};
 
 			var response = this.SystemUnderTest.Execute(request);
 			Assert.Equal(ResponseTypes.Success, response.ResultType);
+		}
+
+		[Fact]
+		public void WhenInsertingArtifactCreatedOnIsSet()
+		{
+			var request = new AddArtifactRequest
+			{
+				Title = "This test rule should not be persisted",
+				Description = "asdf",
+				Link = "asdf"
+			};
+
+			var response = this.SystemUnderTest.Execute(request);
+			Assert.True(response.Result.CreatedOn.Date == DateTime.Now.Date);
 		}
 	}
 }

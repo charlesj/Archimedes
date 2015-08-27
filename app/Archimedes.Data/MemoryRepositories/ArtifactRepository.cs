@@ -12,7 +12,7 @@
 	    {
 			for (int i=0; i < 50; i++)
 		    {
-			    this.Insert(new Artifact
+			    base.Insert(new Artifact
 			    {
 				    Title = Faker.Lorem.Sentence(),
 				    Description = Faker.Lorem.Paragraph(),
@@ -35,6 +35,12 @@
 	    public List<Artifact> GetPagedArtifacts(int startIndex, int pageSize)
 	    {
 		    return this.GetAll().Skip(startIndex).Take(pageSize).ToList();
+	    }
+
+	    public override Artifact Insert(Artifact instance)
+	    {
+		    instance.CreatedOn = DateTime.Today;
+		    return base.Insert(instance);
 	    }
     }
 }

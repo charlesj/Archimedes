@@ -1,0 +1,18 @@
+﻿@model Archimedes.Data.Models.Artifact
+
+    @using (Html.BeginForm("Add", "Artifact")) 
+    {
+        @Html.AntiForgeryToken()
+        
+        @Html.LabelFor(model => model.Title)
+		@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.LabelFor(model => model.Description)
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.LabelFor(model => model.Link)
+        @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
+        <input type="submit" value="Add" class="btn btn-default" />
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

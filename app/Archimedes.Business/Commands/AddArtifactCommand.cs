@@ -1,4 +1,6 @@
-﻿namespace Archimedes.Business.Commands
+﻿using FluentValidation;
+
+namespace Archimedes.Business.Commands
 {
 	using Common.Commands;
 	using Common.Mapping;
@@ -17,6 +19,8 @@
 			var artifact = new Artifact
 			{
 				Title = this.Request.Title,
+				Description = this.Request.Description,
+				Link = this.Request.Link,
 			};
 
 			return this.DataStore.Artifacts.Insert(artifact);
@@ -31,15 +35,17 @@
 	public class AddArtifactRequest : Request
 	{
 		public string Title { get; set; }
-		public string Source { get; set; }
-		public string Motivation { get; set; }
-		public string Status { get; set; }
+		public string Description { get; set; }
+		public string Link { get; set; }
 	}
 
 	public class AddArtifactRequestValidator : BaseValidator<AddArtifactRequest>
 	{
 		public AddArtifactRequestValidator(IMappingService mapper) : base(mapper)
 		{
+			RuleFor(req => req.Title).NotNull().NotEmpty();
+			RuleFor(req => req.Description).NotNull().NotEmpty();
+			RuleFor(req => req.Link).NotNull().NotEmpty();
 		}
 	}
 }
