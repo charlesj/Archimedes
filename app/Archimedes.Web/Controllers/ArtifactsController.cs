@@ -13,10 +13,10 @@
 			this.processor = processor;
 		}
 
-		public ActionResult Index()
+		public ActionResult Index(int startIndex = 0)
         {
-            var request = new GetArtifactsRequest { StartIndex = 0, PageSize = 10 };
-			var response = this.processor.Process<GetArtifactsRequest, GetArtifactsResponse> (request);
+            var request = new GetPagedArtifactsRequest { StartIndex = startIndex, PageSize = 5 };
+			var response = this.processor.Process<GetPagedArtifactsRequest, GetPagedArtifactsResponse> (request);
 			switch (response.ResultType)
 			{
 				case ResponseTypes.Success:

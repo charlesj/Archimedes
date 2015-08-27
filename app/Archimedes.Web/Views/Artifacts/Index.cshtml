@@ -1,26 +1,30 @@
-﻿@model Archimedes.Business.Commands.GetArtifactsResponse
+﻿@model Archimedes.Business.Commands.GetPagedArtifactsResponse
 
 @{
 	ViewBag.Title = "Artifacts";
 }
 
 <h2>Artifacts</h2>
-<table>
-	<thead>
-	<tr>
-		<th>Id</th>
-		<th>Title</th>
-	</tr>
-	</thead>
-	<tbody>
+
 	@foreach (var artifact in @Model.Artifacts)
 	{
-		<tr>
-			<td>@artifact.Id</td>
-			<td>@artifact.Title</td>
-		</tr>
+		<h3>@artifact.Title</h3>
+		<div>
+			@artifact.Description
+		</div>
+		<div>
+			@artifact.CreatedOn.ToShortDateString() | <a href="@artifact.Link">@artifact.Link</a>
+		</div>
 	}
-	</tbody>
-</table>
+
+@if (Model.HasNewer)
+{
+	@Html.ActionLink("Newer", "Index", new {startIndex = Model.NewerStartIndex })
+}
+
+@if (Model.HasOlder)
+{
+	@Html.ActionLink("Older", "Index", new { startIndex = Model.OlderStartIndex })
+}
 
 <p>Found @Model.Artifacts.Count artifacts.</p>

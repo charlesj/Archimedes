@@ -3,8 +3,8 @@
 	using System.Collections.Generic;
 	using System.Linq;
 
-	using Archimedes.Data.Contracts;
-	using Archimedes.Data.Models;
+	using Contracts;
+	using Models;
 
 	public class MemoryRepository<TModel> : IRepository<TModel>
 		where TModel : IModel
@@ -14,30 +14,30 @@
 			this.Storage = new MemoryStorage<TModel>();
 		}
 
-		protected MemoryStorage<TModel> Storage { get; private set; }
+		protected MemoryStorage<TModel> Storage { get; }
 
-		public TModel Get(int id)
+		public virtual TModel Get(int id)
 		{
 			return this.Storage[id];
 		}
 
-		public TModel Insert(TModel instance)
+		public virtual TModel Insert(TModel instance)
 		{
 			return this.Storage.Insert(instance);
 		}
 
-		public TModel Update(TModel instance)
+		public virtual TModel Update(TModel instance)
 		{
 			this.Storage[instance.Id] = instance;
 			return instance;
 		}
 
-		public void Delete(int id)
+		public virtual void Delete(int id)
 		{
 			this.Storage.Remove(id);
 		}
 
-		public IEnumerable<TModel> GetAll()
+		public virtual IEnumerable<TModel> GetAll()
 		{
 			return this.Storage.Select(kvp => kvp.Value);
 		}
