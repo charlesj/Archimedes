@@ -15,8 +15,8 @@
 		{
 			this.Bind<IBusinessServices>().To<BusinessServices>();
 
-			this.RegisterCommand<AddRuleRequest, Rule, AddRuleCommand, AddRuleRequestValidator>();
-			this.RegisterCommand<GetRulesRequest, GetRulesResponse, GetRulesCommand, GetRulesRequestValidator>();
+			this.RegisterCommand<AddArtifactRequest, Artifact, AddArtifactCommand, AddArtifactRequestValidator>();
+			this.RegisterCommand<GetArtifactsRequest, GetArtifactsResponse, GetArtifactsCommand, GetArtifactsRequestValidator>();
 		}
 
 		private void RegisterCommand<TRequest, TResult, TCommand, TRequestValidator>() 

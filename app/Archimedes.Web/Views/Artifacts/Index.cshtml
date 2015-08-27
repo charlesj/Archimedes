@@ -1,0 +1,26 @@
+﻿@model Archimedes.Business.Commands.GetArtifactsResponse
+
+@{
+	ViewBag.Title = "Artifacts";
+}
+
+<h2>Artifacts</h2>
+<table>
+	<thead>
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var artifact in @Model.Artifacts)
+	{
+		<tr>
+			<td>@artifact.Id</td>
+			<td>@artifact.Title</td>
+		</tr>
+	}
+	</tbody>
+</table>
+
+<p>Found @Model.Artifacts.Count artifacts.</p>

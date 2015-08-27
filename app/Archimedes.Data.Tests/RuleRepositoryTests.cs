@@ -8,7 +8,7 @@
 
 	using Xunit;
 
-	public class RulesRepositoryTests : BaseIntegrationTest<IRuleRepository>
+	public class ArtifactRepositoryTests : BaseIntegrationTest<IArtifactRepository>
 	{
 		[Fact]
 		public void RepositoryCanGetAll()
@@ -20,8 +20,8 @@
 		public void RepositoryCanInsert()
 		{
 			var currentCount = this.SystemUnderTest.GetAll().Count();
-			var rule = new Rule();
-			this.SystemUnderTest.Insert(rule);
+			var artifact = new Artifact();
+			this.SystemUnderTest.Insert(artifact);
 			var newCount = this.SystemUnderTest.GetAll().Count();
 			Assert.True(newCount == currentCount + 1);
 		}
@@ -29,21 +29,21 @@
 		[Fact]
 		public void RepositoryCanUpdate()
 		{
-			var rule = new Rule();
-			this.SystemUnderTest.Insert(rule);
-			var newMan = new Rule { Id = rule.Id, Title = "New Title" };
+			var artifact = new Artifact();
+			this.SystemUnderTest.Insert(artifact);
+			var newMan = new Artifact { Id = artifact.Id, Title = "New Title" };
 			this.SystemUnderTest.Update(newMan);
-			Assert.True(this.SystemUnderTest.Get(rule.Id).Title == "New Title");
+			Assert.True(this.SystemUnderTest.Get(artifact.Id).Title == "New Title");
 		}
 
 		[Fact]
 		public void RepositoryCanDelete()
 		{
-			var rule = new Rule();
-			rule = this.SystemUnderTest.Insert(rule);
+			var artifact = new Artifact();
+			artifact = this.SystemUnderTest.Insert(artifact);
 			var currentCount = this.SystemUnderTest.GetAll().Count();
 			
-			this.SystemUnderTest.Delete(rule.Id);
+			this.SystemUnderTest.Delete(artifact.Id);
 			var newCount = this.SystemUnderTest.GetAll().Count();
 			Assert.True(newCount == currentCount - 1);
 		}

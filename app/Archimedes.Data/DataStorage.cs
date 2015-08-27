@@ -7,6 +7,6 @@
 	public class DataStorage : IDataStorage
 	{
 		[Inject]
-		public IRuleRepository Rules { get; set; }
+		public IArtifactRepository Artifacts { get; set; }
 	}
 }

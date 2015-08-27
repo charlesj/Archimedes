@@ -11,7 +11,7 @@
 		{
 			this.Bind<IDataStorage>().To<DataStorage>().InSingletonScope();
 
-			this.Bind<IRuleRepository>().To<RuleRepository>();
+			this.Bind<IArtifactRepository>().To<ArtifactRepository>();
 		}
 	}
 }

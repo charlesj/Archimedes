@@ -6,7 +6,7 @@ namespace Archimedes.Business.Tests.Commands
 	using Common.Commands;
 	using Data.Models;
 
-	public class AddRuleCommandTests : BusinessIntegrationTest<BaseCommand<AddRuleRequest, Rule>>
+	public class AddArtifactCommandTests : BusinessIntegrationTest<BaseCommand<AddArtifactRequest, Artifact>>
 	{
 		[Fact]
 		public void CanInstatiateTheSut()
@@ -17,7 +17,7 @@ namespace Archimedes.Business.Tests.Commands
 		[Fact]
 		public void CanExecuteTheCommand()
 		{
-			var request = new AddRuleRequest
+			var request = new AddArtifactRequest
 			{
 				Motivation = "Test test test",
 				Source = "Fozzy",

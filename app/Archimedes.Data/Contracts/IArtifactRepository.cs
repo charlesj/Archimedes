@@ -2,7 +2,7 @@
 {
     using Models;
 
-    public interface IRuleRepository : IRepository<Rule>
+    public interface IArtifactRepository : IRepository<Artifact>
     {
     }
 }

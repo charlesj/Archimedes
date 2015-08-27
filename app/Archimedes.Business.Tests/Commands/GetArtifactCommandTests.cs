@@ -1,11 +1,10 @@
-﻿using Xunit;
-
-namespace Archimedes.Business.Tests.Commands
+﻿namespace Archimedes.Business.Tests.Commands
 {
 	using Business.Commands;
 	using Common.Commands;
+	using Xunit;
 
-	public class GetRulesCommandTests : BusinessIntegrationTest<BaseCommand<GetRulesRequest, GetRulesResponse>>
+	public class GetArtifactCommandTests : BusinessIntegrationTest<BaseCommand<GetArtifactsRequest, GetArtifactsResponse>>
 	{
 		[Fact]
 		public void CanInstantiateCommand()
@@ -16,7 +15,7 @@ namespace Archimedes.Business.Tests.Commands
 		[Fact]
 		public void CanExecuteWithBasicRequest()
 		{
-			var request = new GetRulesRequest();
+			var request = new GetArtifactsRequest();
 			var response = this.SystemUnderTest.Execute(request);
 			Assert.Equal(ResponseTypes.Success, response.ResultType);
 		}
@@ -24,7 +23,7 @@ namespace Archimedes.Business.Tests.Commands
 		[Fact]
 		public void IfRequestContainsInvalidPageValuesReturnInvalidResult()
 		{
-			var request = new GetRulesRequest {PageSize = 0, StartIndex = -1};
+			var request = new GetArtifactsRequest {PageSize = 0, StartIndex = -1};
 			var response = this.SystemUnderTest.Execute(request);
 			Assert.Equal(ResponseTypes.InvalidRequest, response.ResultType);
 		}
@@ -32,7 +31,7 @@ namespace Archimedes.Business.Tests.Commands
 		[Fact]
 		public void IfOnlyOnePageResponseIsSetReturnInvalidResult()
 		{
-			var request = new GetRulesRequest { PageSize = 10 };
+			var request = new GetArtifactsRequest { PageSize = 10 };
 			var response = this.SystemUnderTest.Execute(request);
 			Assert.Equal(ResponseTypes.InvalidRequest, response.ResultType);
 		}
@@ -40,9 +39,9 @@ namespace Archimedes.Business.Tests.Commands
 		[Fact]
 		public void IfPageSizeIsSetResultsContainNoMoreThanPageSize()
 		{
-			var request = new GetRulesRequest { PageSize = 10, StartIndex = 0 };
+			var request = new GetArtifactsRequest { PageSize = 10, StartIndex = 0 };
 			var response = this.SystemUnderTest.Execute(request);
-			Assert.True(response.Result.FoundRules.Count <= 10);
+			Assert.True(response.Result.Artifacts.Count <= 10);
 		}
 	}
 }

@@ -55,8 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessIntegrationTest.cs" />
-    <Compile Include="Commands\AddRuleCommandTests.cs" />
-    <Compile Include="Commands\GetRulesCommandTests.cs" />
+    <Compile Include="Commands\AddArtifactCommandTests.cs" />
+    <Compile Include="Commands\GetArtifactCommandTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

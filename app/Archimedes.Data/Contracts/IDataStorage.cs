@@ -2,6 +2,6 @@
 {
 	public interface IDataStorage
 	{
-        IRuleRepository Rules { get; set; }
+        IArtifactRepository Artifacts { get; set; }
 	}
 }
